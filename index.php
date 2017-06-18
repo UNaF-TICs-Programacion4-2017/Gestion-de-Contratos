@@ -15,7 +15,16 @@
 		<input type="password" name="passlg" placeholder="password" required="true" />
 		<input type="submit" name="botonlg" value="iniciar sesion" />
 	</form>
+
+	<div>
+		<br>
+			<?php  
+				 echo '<a href="Main_app/registrarse.php">Usuario Nuevo? => Registrarse</a>';
+			?>
+		<br>
+	</div>
 </div>
+
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/main.js"></script>
 </body>
