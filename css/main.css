@@ -10,7 +10,8 @@ html{
 	font-family: 'Open Sans', sans-serif;
 	font-size: 16px;
 }
-/*body{
+/*
+body{
 	background-image: url('img/fondo_login.jpg');
 	background-size: cover;
 }
@@ -43,7 +44,7 @@ input[type="submit"]:hover, input[type="button"]:hover, input[type="reset"]:hove
 	opacity: .8;
 }
 
-.main input[type="text"], .main input[type="password"] {
+.main input[type="email"], input[type="text"], .main input[type="password"] {
 	text-align: center;
 	border:0;
 }

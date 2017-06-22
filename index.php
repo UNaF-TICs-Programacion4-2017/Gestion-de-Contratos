@@ -19,7 +19,7 @@
 	<div>
 		<br>
 			<?php  
-				 echo '<a href="Main_app/registrarse.php">Usuario Nuevo? => Registrarse</a>';
+				 echo '<a href="registrarse.php">Usuario Nuevo? => Registrarse</a>';
 			?>
 		<br>
 	</div>
