@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    //including the database connection file
+    include_once("config.php");
+
+    //fetching data in descending order (lastest entry first)
+    $result = $dbConn->query("SELECT * FROM antecedentes_laborales ORDER BY id_ant_lab ASC");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,17 +20,17 @@
 
     <title>Curriculum Vitae</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+   <!-- Bootstrap Core CSS -->
+    <link href="../../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
-    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <link href="../../../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="../../../dist/css/sb-admin-2.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../../../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -45,7 +54,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" >Nombre Usuario</a>
+                <a class="navbar-brand"><?php echo strtoupper($_SESSION['usuariolg']);?></a>
             </div>
             <!-- /.navbar-header -->
 
@@ -79,14 +88,14 @@
                         <li>
                             <a href="../php/cv_estudios_cursados_leer.php"><i class="fa fa-mortar-board fa-fw"></i> Estudios Cursados</a>
                         </li>
-                        <li>
+                              <li>
                             <a href="#"><i class="fa fa-edit fa-fw"></i> Antecedentes<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="cvantdoc1.html">Docentes</a>
+                                    <a href="../php/cv_antecedentes_docentes_leer.php">Docentes</a>
                                 </li>
                                 <li>
-                                    <a href="cvantlab1.html">Laborales</a>
+                                    <a href="../php/cv_antecedentes_laborales_leer.php">Laborales</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -118,59 +127,49 @@
                     <!-- /.col-lg-12 -->
                 </div>
                 <!-- /.row -->
+
                 <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Estudios Cursados
+                            Antecedentes Laborales
                         </div>
+
+                        <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <form role="form" action="../php/cv_estudios_cursados_agregar.php" method="post" name="form1">
 
-                                        <div class="form-group">
-                                            <label>Tipo Titulo</label>
-                                            <select name="tipo_titulo" class="form-control">
-                                                <option value="1">Grado</option>
-                                                <option value="2">Posgrado</option>
-                                            </select>
-                                        </div>
+                            <div class="table-responsive">
 
-                                        <div class="form-group">
-                                            <label>Desde</label>
-                                            <input type="text" name="desde" class="form-control" placeholder="Ingresar Año de Inicio">
-     
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Hasta</label>
-                                            <input type="text" name="hasta" class="form-control" placeholder="Ingresar Año de Finalizacion">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Universidad</label>
-                                            <input type="text" name="universidad" class="form-control">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Titulo Obtenido</label>
-                                            <input type="text" name="titulo_obtenido" class="form-control">
-                                        </div>
+                                <table align = "center" width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <thead>
+                                        <tr>
+                                            <th>Desde</th>
+                                            <th>Hasta</th>
+                                            <th>Organizacion</th>
+                                            <th>Cargo</th>
+                                            <th>Editar</th>
+                                            <th>Borrar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
                                         
-                                        <td><input type="submit" name="Submit" value="Aceptar" class="btn btn-default"></td>
-                                        <td><a href="../php/cv_estudios_cursados_leer.php" class="btn btn-default">Cancelar</a></td>
-
-                                        </div>
-                                                                                                                     
-                                    </form>
-
-                                </div>
-                                <!-- /.col-lg-6 (nested) -->
-                                
-                                <!-- /.col-lg-6 (nested) -->
-                            </div>
-                            <!-- /.row (nested) -->
+                                           <?php    
+                                                while($row = $result->fetch(PDO::FETCH_ASSOC)) {        
+                                                echo "<tr>";
+                                                echo "<td>".$row['desde']."</td>";
+                                                echo "<td>".$row['hasta']."</td>"; 
+                                                echo "<td>".$row['organizacion']."</td>";
+                                                echo "<td>".$row['cargo']."</td>";
+                                                echo "<td><a href= \"cv_antecedentes_laborales_modificar.php?id_ant_lab=$row[id_ant_lab]\">Modificar</a></td>";
+                                                echo "<td><a href=\"cv_antecedentes_laborales_borrar.php?id_ant_lab=$row[id_ant_lab]\" onClick=\"return confirm('Estas seguro de querer borrar?')\" >Borrar</a></td>";       
+                                              }
+                                            ?>
+                                       
+                                    </tbody>
+                            </table>
+                        </div>
+                        
+                            <a href="../php/cv_antecedentes_laborales.php" class="btn btn-primary btn-sm">Agregar</a>
                         </div>
                         <!-- /.panel-body -->
                     </div>
@@ -178,24 +177,27 @@
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
-            <!-- /.container-fluid -->
+                </div>
+                            <!-- /.panel-body -->
+            </div>
+                    <!-- /.panel -->
         </div>
-        <!-- /#page-wrapper -->
-    </div>
-    <!-- /#wrapper -->
+                <!-- /.col-lg-12 -->
 
     <!-- jQuery -->
-    <script src="../vendor/jquery/jquery.min.js"></script>
+    
+    <!-- jQuery -->
+    <script src="../../../vendor/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../../vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Metis Menu Plugin JavaScript -->
-    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+    <script src="../../../vendor/metisMenu/metisMenu.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="../dist/js/sb-admin-2.js"></script>
-    
+    <script src="../../../dist/js/sb-admin-2.js"></script>
+
 </body>
 
 </html>

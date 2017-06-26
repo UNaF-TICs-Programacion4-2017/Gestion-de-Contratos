@@ -1,7 +1,7 @@
 <?php
 
 $databaseHost = 'localhost';
-$databaseName = 'login';
+$databaseName = 'db_gestion_contratos';
 $databaseUsername = 'root';
 $databasePassword = '';
 

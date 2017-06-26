@@ -1,11 +1,4 @@
-<?php
-    session_start();
-    //including the database connection file
-    include_once("config.php");
-
-    //fetching data in descending order (lastest entry first)
-    $result = $dbConn->query("SELECT * FROM datos_personas ORDER BY id_persona ASC");
-?>
+<?php session_start(); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +13,7 @@
 
     <title>Curriculum Vitae</title>
 
-   <!-- Bootstrap Core CSS -->
+    <!-- Bootstrap Core CSS -->
     <link href="../../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
@@ -88,7 +81,7 @@
                         <li>
                             <a href="../php/cv_estudios_cursados_leer.php"><i class="fa fa-mortar-board fa-fw"></i> Estudios Cursados</a>
                         </li>
-                              <li>
+                        <li>
                             <a href="#"><i class="fa fa-edit fa-fw"></i> Antecedentes<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -127,71 +120,73 @@
                     <!-- /.col-lg-12 -->
                 </div>
                 <!-- /.row -->
-
                 <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Datos Personales
+                            Antecedentes Docentes
                         </div>
-
-                        <!-- /.panel-heading -->
                         <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <form role="form" action="../php/cv_antecedentes_docentes_agregar.php" method="post" name="form1">
+                                        <div class="form-group">
+                                            <label>Desde</label>
+                                            <input type="text" name="desde" class="form-control" placeholder="Ingresar Año de Inicio">
+     
+                                        </div>
 
-                            <div class="table-responsive">
+                                        <div class="form-group">
+                                            <label>Hasta</label>
+                                            <input type="text" name="hasta" class="form-control" placeholder="Ingresar Año de Finalizacion">
+                                        </div>
 
-                                <table align = "center" width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                    <thead>
-                                        <tr>
-                                            <th>Apellido</th>
-                                            <th>Nombre</th>
-                                            <th>DNI</th>
-                                            <th>CUIL/CUIT</th>
-                                            <th>Domicilio</th>
-                                            <th>Telefono</th>
-                                            <th>Celular</th>
-                                            <th>Editar</th>
-                                            <th>Borrar</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        
-                                           <?php    
-                                                while($row = $result->fetch(PDO::FETCH_ASSOC)) {        
-                                                echo "<tr>";
-                                                echo "<td>".$row['apellido']."</td>";
-                                                echo "<td>".$row['nombre']."</td>";
-                                                echo "<td>".$row['dni']."</td>"; 
-                                                echo "<td>".$row['cuil']."</td>";
-                                                echo "<td>".$row['domicilio']."</td>";
-                                                echo "<td>".$row['telefono']."</td>"; 
-                                                echo "<td>".$row['celular']."</td>"; 
-                                                echo "<td><a href= \"cv_datos_personales_modificar.php?id_persona=$row[id_persona]\">Modificar</a></td>";
-                                                echo "<td><a href=\"cv_datos_personales_borrar.php?id_persona=$row[id_persona]\" onClick=\"return confirm('Estas seguro de querer borrar?')\" >Borrar</a></td>";       
-                                              }
-                                            ?>
-                                       
-                                    </tbody>
-                            </table>
-                        </div>
-                        
-                            <a href="../php/cv_datos_personales.php" class="btn btn-primary btn-sm">Agregar</a>
+                                        <div class="form-group">
+                                            <label>Universidad</label>
+                                            <input type="text" name="universidad" class="form-control">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Cargo</label>
+                                            <input type="text" name="cargo" class="form-control">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Catedra</label>
+                                            <input type="text" name="catedra" class="form-control">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Carrera</label>
+                                            <input type="text" name="carrera" class="form-control">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Facultad</label>
+                                            <input type="text" name="facultad" class="form-control">
+                                        </div>
+
+
+                                         <td><input type="submit" name="Submit" value="Aceptar" class="btn btn-default"></td>
+                                         <td><a href="../php/cv_antecedentes_docentes_leer.php" class="btn btn-default">Cancelar</a></td> 
+                                                                             
+                                    </form>
+                    
                         </div>
                         <!-- /.panel-body -->
+     
                     </div>
                     <!-- /.panel -->
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
-                </div>
-                            <!-- /.panel-body -->
-            </div>
-                    <!-- /.panel -->
+            <!-- /.container-fluid -->
         </div>
-                <!-- /.col-lg-12 -->
+        <!-- /#page-wrapper -->
 
-    <!-- jQuery -->
-    
+    </div>
+    <!-- /#wrapper -->
+
     <!-- jQuery -->
     <script src="../../../vendor/jquery/jquery.min.js"></script>
 
@@ -203,7 +198,7 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="../../../dist/js/sb-admin-2.js"></script>
-
+    
 </body>
 
 </html>

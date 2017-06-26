@@ -14,16 +14,16 @@
     <title>Curriculum Vitae</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="../usuario/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
-    <link href="../usuario/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <link href="../../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="../usuario/dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="../../dist/css/sb-admin-2.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="../usuario/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -85,16 +85,16 @@
                             <a href="#"><i class="fa fa-edit fa-fw"></i> Antecedentes<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="cvantdoc1.html">Docentes</a>
+                                    <a href="../usuario/php/cv_antecedentes_docentes_leer.php">Docentes</a>
                                 </li>
                                 <li>
-                                    <a href="cvantlab1.html">Laborales</a>
+                                    <a href="../usuario/php/cv_antecedentes_laborales_leer.php">Laborales</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="cvpublicaciones1.html"><i class="fa fa-book fa-fw"></i>Publicaciones y Trabajos de Investigacion</a>
+                            <a href="../usuario/php/cv_publicaciones_leer.php"><i class="fa fa-book fa-fw"></i>Publicaciones y Trabajos de Investigacion</a>
                         </li>
                         <li>
                             <a href="forms.html"><i class="fa fa-search fa-fw"></i> Ver Curriculum</a>
@@ -149,16 +149,16 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script src="../usuario/vendor/jquery/jquery.min.js"></script>
+    <script src="../../vendor/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="../usuario/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Metis Menu Plugin JavaScript -->
-    <script src="../usuario/vendor/metisMenu/metisMenu.min.js"></script>
+    <script src="../../vendor/metisMenu/metisMenu.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="../usuario/dist/js/sb-admin-2.js"></script>
+    <script src="../../dist/js/sb-admin-2.js"></script>
 <!--
 <div class="error">
 	<span>datos de ingreso no validos</span>

@@ -1,9 +1,10 @@
 <?php
+    session_start();
     //including the database connection file
     include_once("config.php");
 
     //fetching data in descending order (lastest entry first)
-    $result = $dbConn->query("SELECT * FROM estudios_personas ORDER BY id_persona ASC");
+    $result = $dbConn->query("SELECT * FROM titulos_obtenidos, tipo_titulo WHERE titulos_obtenidos.rela_titulo=tipo_titulo.id_tipo_titulo ORDER BY id_titulo ASC");
 ?>
 
 <!DOCTYPE html>
@@ -20,16 +21,16 @@
     <title>Curriculum Vitae</title>
 
    <!-- Bootstrap Core CSS -->
-    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
-    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <link href="../../../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="../../../dist/css/sb-admin-2.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../../../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -53,7 +54,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" >Nombre Usuario</a>
+                <a class="navbar-brand"><?php echo strtoupper($_SESSION['usuariolg']);?></a>
             </div>
             <!-- /.navbar-header -->
 
@@ -91,16 +92,16 @@
                             <a href="#"><i class="fa fa-edit fa-fw"></i> Antecedentes<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="cvantdoc1.html">Docentes</a>
+                                    <a href="../php/cv_antecedentes_docentes_leer.php">Docentes</a>
                                 </li>
                                 <li>
-                                    <a href="cvantlab1.html">Laborales</a>
+                                    <a href="../php/cv_antecedentes_laborales_leer.php">Laborales</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="cvpublicaciones1.html"><i class="fa fa-book fa-fw"></i>Publicaciones y Trabajos de Investigacion</a>
+                            <a href="../php/cv_publicaciones_leer.php"><i class="fa fa-book fa-fw"></i>Publicaciones y Trabajos de Investigacion</a>
                         </li>
                         <li>
                             <a href="forms.html"><i class="fa fa-search fa-fw"></i> Ver Curriculum</a>
@@ -156,13 +157,13 @@
                                            <?php    
                                                 while($row = $result->fetch(PDO::FETCH_ASSOC)) {        
                                                 echo "<tr>";
-                                                echo "<td>".$row['tipo_titulo']."</td>";
+                                                echo "<td>".$row['descripcion']."</td>";
                                                 echo "<td>".$row['desde']."</td>";
                                                 echo "<td>".$row['hasta']."</td>"; 
                                                 echo "<td>".$row['titulo']."</td>";
                                                 echo "<td>".$row['universidad']."</td>";
-                                                echo "<td><a href= \"cv_estudios_cursados_modificar.php?id_persona=$row[id_persona]\">Modificar</a></td>";
-                                                echo "<td><a href=\"cv_estudios_cursados_borrar.php?id_persona=$row[id_persona]\" onClick=\"return confirm('Estas seguro de querer borrar?')\" >Borrar</a></td>";       
+                                                echo "<td><a href= \"cv_estudios_cursados_modificar.php?id_titulo=$row[id_titulo]\">Modificar</a></td>";
+                                                echo "<td><a href=\"cv_estudios_cursados_borrar.php?id_titulo=$row[id_titulo]\" onClick=\"return confirm('Estas seguro de querer borrar?')\" >Borrar</a></td>";       
                                               }
                                             ?>
                                        
@@ -170,7 +171,7 @@
                             </table>
                         </div>
                         
-                            <a href="../html/cv_estudios_cursados.html" class="btn btn-primary btn-sm">Agregar</a>
+                            <a href="../php/cv_estudios_cursados.php" class="btn btn-primary btn-sm">Agregar</a>
                         </div>
                         <!-- /.panel-body -->
                     </div>
@@ -188,16 +189,16 @@
     <!-- jQuery -->
     
     <!-- jQuery -->
-    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../../../vendor/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../../vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Metis Menu Plugin JavaScript -->
-    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+    <script src="../../../vendor/metisMenu/metisMenu.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="../dist/js/sb-admin-2.js"></script>
+    <script src="../../../dist/js/sb-admin-2.js"></script>
 
 </body>
 

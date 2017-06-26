@@ -11,10 +11,10 @@
 </div>
 <div class="main">
 	<form  method="POST" id="formlg">
-		<input type="email" name="correolg" placeholder="ingrese un email" required="true"/>
+		<input type="email" name="correolg" placeholder="ingrese su email" required="true"/>
 		<input type="text" name="usuariolg" placeholder="ingrese su nombre de usuario" required="true" />
 		<input type="password" name="passlg" placeholder="ingrese su password" required="true" />
-		<input type="submit" name="botonlg" value="REGISTRARSE" />
+		<input type="submit" name="botonlg" value="Registrarse" />
 	</form>
 </div>
 
