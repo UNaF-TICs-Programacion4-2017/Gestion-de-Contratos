@@ -1,19 +1,26 @@
-<?php session_start(); ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<?php
+    session_start();
+    //including the database connection file
+    include_once("config.php");
 
-	<meta charset="utf-8">
+    //fetching data in descending order (lastest entry first)
+    $result = $dbConn->query("SELECT * FROM datos_personas ORDER BY id_persona ASC");
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Administrador</title>
+    <title>Contratos</title>
 
-    <!-- Bootstrap Core CSS -->
+   <!-- Bootstrap Core CSS -->
     <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
@@ -31,11 +38,12 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
 </head>
 
 <body>
 
-	<div id="wrapper">
+    <div id="wrapper">
 
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -47,7 +55,6 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand"><?php echo strtoupper($_SESSION['usuariolg']);?></a>
-	            
             </div>
             <!-- /.navbar-header -->
 
@@ -62,7 +69,7 @@
                         <li><a href="#"><i class="fa fa-key fa-fw"></i> Cambiar Contraseña</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="../logout.php"><i class="fa fa-sign-out fa-fw"></i> Cerrar Sesion</a>
+                        <li><a href="../../logout.php"><i class="fa fa-sign-out fa-fw"></i> Cerrar Sesion</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -74,8 +81,7 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                       	
-                       	<li>
+                        <li>
                             <a href="panel_control.php"><i class="fa fa-dashboard fa-fw"></i>Panel de Control</a>
                         </li>
 
@@ -96,38 +102,77 @@
             <!-- /.navbar-static-side -->
         </nav>
 
+
         <!-- Page Content -->
         <div id="page-wrapper">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header"><?php echo "Bienvenido ". strtoupper($_SESSION['usuariolg']);
-?>	</h1>
+                        <h1 class="page-header">Aspirantes</h1>
                     </div>
-
-                        <form role="form">
-                            
-                            
-                                
-                                 <!-- /<div align="center" class="form-group">
-                                   // <img src="../images/unaf.jpg" width="385" height="385" >
-                               </div> -->
-                            </div>
-
-                        </form>
                     <!-- /.col-lg-12 -->
                 </div>
                 <!-- /.row -->
-                
+
+                <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Lista de Aspirantes
+                        </div>
+
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+
+                            <div class="table-responsive">
+
+                                <table align = "center" width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <thead>
+                                        <tr>
+                                            <th>Apellido</th>
+                                            <th>Nombre</th>
+                                            <th>DNI</th>
+                                            <th>CUIL/CUIT</th>
+                                            <th>Domicilio</th>
+                                            <th>Telefono</th>
+                                            <th>Celular</th>
+                                            <th>Asignar</th>
+                                            <th>Modificar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                           <?php    
+                                                while($row = $result->fetch(PDO::FETCH_ASSOC)) {        
+                                                echo "<tr>";
+                                                echo "<td>".$row['apellido']."</td>";
+                                                echo "<td>".$row['nombre']."</td>";
+                                                echo "<td>".$row['dni']."</td>"; 
+                                                echo "<td>".$row['cuil']."</td>";
+                                                echo "<td>".$row['domicilio']."</td>";
+                                                echo "<td>".$row['telefono']."</td>"; 
+                                                echo "<td>".$row['celular']."</td>"; 
+                                                echo "<td><a href= \"contratos_asignar.php?id_persona=$row[id_persona]\">Asignar</a></td>";
+                                                echo "<td><a href=\"contratos_modificar.php?id_persona=$row[id_persona]\" onClick=\"return confirm('Estas seguro de querer Modificar?')\" >Modificar</a></td>";       
+                                              }
+                                            ?>      
+                                    </tbody>
+                            </table>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
                 <!-- /.col-lg-12 -->
             </div>
-            <!-- /.container-fluid -->
+                </div>
+                            <!-- /.panel-body -->
+            </div>
+                    <!-- /.panel -->
         </div>
-        <!-- /#page-wrapper -->
+                <!-- /.col-lg-12 -->
 
-    </div>
-    <!-- /#wrapper -->
-
+    <!-- jQuery -->
+    
     <!-- jQuery -->
     <script src="../../vendor/jquery/jquery.min.js"></script>
 
@@ -139,19 +184,7 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="../../dist/js/sb-admin-2.js"></script>
-<!--
-<div class="error">
-	<span>datos de ingreso no validos</span>
-</div>
-<div class="main">
-	<form action="" id="formlg">
-		<input type="text" name="usuariolg" placeholder="nombre de usuario" required="true" />
-		<input type="password" name="passlg" placeholder="password" required="true" />
-		<input type="submit" name="botonlg" value="iniciar sesion" />
-	</form>
-</div>
-<script src="js/jquery-2.1.1.min.js"></script>
-<script src="js/main.js"></script>-->
 
 </body>
+
 </html>
