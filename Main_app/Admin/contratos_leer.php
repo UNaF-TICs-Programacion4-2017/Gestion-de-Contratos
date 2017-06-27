@@ -136,8 +136,8 @@
                                             <th>Domicilio</th>
                                             <th>Telefono</th>
                                             <th>Celular</th>
-                                            <th>Asignar</th>
-                                            <th>Modificar</th>
+                                            <th>Contrato</th>
+                                            <th>Accion</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -152,7 +152,7 @@
                                                 echo "<td>".$row['domicilio']."</td>";
                                                 echo "<td>".$row['telefono']."</td>"; 
                                                 echo "<td>".$row['celular']."</td>"; 
-                                                echo "<td><a href= \"contratos_asignar.php?id_persona=$row[id_persona]\">Asignar</a></td>";
+                                                echo "<td><a href= \"contratos.php?id_persona=$row[id_persona]\">Asignar</a></td>";
                                                 echo "<td><a href=\"contratos_modificar.php?id_persona=$row[id_persona]\" onClick=\"return confirm('Estas seguro de querer Modificar?')\" >Modificar</a></td>";       
                                               }
                                             ?>      

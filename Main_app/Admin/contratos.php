@@ -116,75 +116,73 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form role="form" action="../php/cv_datos_personales_agregar.php" method="post" name="form1">
+                                    <form role="form" action="../Admin/contratos_agregar.php" method="post" name="form1">
+
                                         <div class="form-group">
-                                            <label>Apellido</label>
-                                            <input type="text" name="apellido" class="form-control" >
-                                            <!-- <p class="help-block">Example block-level help text here.</p> -->      
+                                            <label>Fecha</label>
+                                            <input type="text" name="fecha" class="form-control" >
                                         </div>
+
                                         <div class="form-group">
-                                            <label>Nombres</label>
-                                            <input  type="text" name="nombre" class="form-control">
+                                            <label>Decano</label>
+                                            <input type="text" name="decano" class="form-control" >
+                                        </div> 
+
+                                        <div class="form-group">
+                                            <label>Dni</label>
+                                            <input type="text" name="decano_dni" class="form-control" >
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Contratado</label>
+                                            <input  type="text" name="nombre_contratado" class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label>DNI</label>
                                             <input type="text" name="dni" class="form-control">
                                         </div>
                                         <div class="form-group">
-                                            <label>CUIL/CUIT</label>
-                                            <input type="text" name="cuil" class="form-control">
+                                            <label>CUIT</label>
+                                            <input type="text" name="cuit" class="form-control">
                                         </div>
-                                        <div class="form-group">
-                                            <label>Nacionalidad</label>
-                                            <input type="text" name="nacionalidad" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Lugar de Nacimiento</label>
-                                            <input type="text" name="lugar_nac" class="form-control">
-                                        </div>
-                                         <div class="form-group">
-                                            <label>Fecha de Nacimiento</label>
-                                            <input type="text" name="fecha_nac" class="form-control">
-                                        </div>
-
                                         <div class="form-group">
                                             <label>Domicilio</label>
                                             <input type="text" name="domicilio" class="form-control">
                                         </div>
                                         <div class="form-group">
-                                            <label>Telefono Fijo</label>
-                                            <input type="text" name="telefono" class="form-control">
+                                            <label>Cargo</label>
+                                            <input type="text" name="cargo" class="form-control">
+                                        </div>
+                                         <div class="form-group">
+                                            <label>Asignatura</label>
+                                            <input type="text" name="fecha_nac" class="form-control">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Carrera</label>
+                                            <input type="text" name="carrera" class="form-control">
                                         </div>
                                         <div class="form-group">
-                                            <label>Celular</label>
-                                            <input type="text" name="celular" class="form-control">
+                                            <label>Desde</label>
+                                            <input type="text" name="desde" class="form-control">
                                         </div>
                                         <div class="form-group">
-                                            <label>Email</label>
-                                            <input type="text" name="email" class="form-control">
+                                            <label>Hasta</label>
+                                            <input type="text" name="hasta" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Monto</label>
+                                            <input type="text" name="monto" class="form-control">
                                         </div>
                                         
                                          <td><input type="submit" name="Submit" value="Aceptar" class="btn btn-default"></td>
-                                         <td><a href="../php/cv_datos_personales_leer.php" class="btn btn-default">Cancelar</a></td> 
+                                         <td><a href="../Admin/contratos_leer.php" class="btn btn-default">Cancelar</a></td> 
+                                         <td><a href="../exportar_contrato.php" class="btn btn-default">Exportar</a></td> 
                                                                              
                                     </form>
 
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
-                                <div class="col-lg-6">
-                                    <form role="form">
-
-                                        <div align="center" class="form-group">
-                                            <img src="../images/default-user.png" width="200" height="200" >
-                                        </div>
-
-                                        <div align="center" class="form-group">
-                                            <label>Buscar Foto</label>
-                                            <input type="file">
-                                        </div>
-                                    </form>
-                                    
-                                </div>
 
                                 <!-- /.col-lg-6 (nested) -->
                             </div>
