@@ -14,7 +14,7 @@ if(isset($_POST['Submit'])) {
 
 	$desde = $_POST['desde'];
 	$hasta = $_POST['hasta'];
-	$universidad = $_POST['organizacion'];
+	$organizacion = $_POST['organizacion'];
 	$cargo = $_POST['cargo'];
 		
 		//insert data to database		

@@ -204,7 +204,12 @@ if(isset($_POST['update']))
                                             <input type="text" name="cargo" class="form-control" value="<?php echo $cargo;?>">
                                         </div>
                                         
-                                        
+                                        <div class="form-group">
+                                            <label>Id ant lab</label>
+                                            <input type="text" name="id_ant_lab" value="<?php echo $_GET['id_ant_lab'];?>">
+                                        </div>
+
+
                                         <td><input type="submit" name="update" value="Aceptar" class="btn btn-default"></td>
                                        
                                         <a href="../php/cv_antecedentes_laborales_leer.php" class="btn btn-default">Cancelar</a>

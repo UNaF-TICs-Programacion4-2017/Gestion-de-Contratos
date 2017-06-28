@@ -220,6 +220,11 @@ if(isset($_POST['update']))
                                             <input type="text" name="titulo_obtenido" class="form-control" value="<?php echo $titulo_obtenido;?>">
                                         </div>
                                         
+                                        <div class="form-group">
+                                            <label>Id titulo</label>
+                                            <input type="text" name="id_titulo" value="<?php echo $_GET['id_titulo'];?>">
+                                        </div>
+
                                         <td><input type="submit" name="Submit" value="Aceptar" class="btn btn-default"></td>
                                         <td><a href="../php/cv_estudios_cursados_leer.php" class="btn btn-default">Cancelar</a></td>
 

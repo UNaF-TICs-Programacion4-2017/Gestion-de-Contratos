@@ -224,7 +224,11 @@ if(isset($_POST['update']))
                                             <input type="text" name="facultad" class="form-control" value="<?php echo $facultad;?>">
                                         </div>
  
-                                        
+                                        <div class="form-group">
+                                            <label>Id Ant Doc</label>
+                                            <input type="text" name="id_ant_doc" value="<?php echo $_GET['id_ant_doc'];?>">
+                                        </div>
+
                                         <td><input type="submit" name="update" value="Aceptar" class="btn btn-default"></td>
                                        
                                         <a href="../php/cv_antecedentes_docentes_leer.php" class="btn btn-default">Cancelar</a>

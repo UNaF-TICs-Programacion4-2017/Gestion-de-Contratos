@@ -143,7 +143,7 @@
 
                                         <div class="form-group">
                                             <label>Organizacion</label>
-                                            <input type="text" name="universidad" class="form-control">
+                                            <input type="text" name="organizacion" class="form-control">
                                         </div>
 
                                         <div class="form-group">
