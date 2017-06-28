@@ -1,86 +1,4 @@
-<?php
-session_start();
-// including the database connection file
-include_once("config.php");
-
-if(isset($_POST['update']))
-{	
-	$id_persona = $_POST['id_persona'];
-	
-	$apellido = $_POST['apellido'];
-	$nombre = $_POST['nombre'];
-	$dni = $_POST['dni'];
-	$cuil = $_POST['cuil'];
-	$nacionalidad = $_POST['nacionalidad'];
-	$lugar_nac = $_POST['lugar_nac'];
-	$fecha_nac = $_POST['fecha_nac'];
-	$domicilio = $_POST['domicilio'];
-	$telefono = $_POST['telefono'];
-	$celular = $_POST['celular'];
-	$email = $_POST['email'];	
-	
-    $fecha_nac = str_replace('/', '-', $fecha_nac);
-    $fechaBD = date("Y-m-d", strtotime($fecha_nac));
- 
-		//updating the table
-		$sql = "UPDATE datos_personas SET apellido=:apellido, nombre=:nombre, dni=:dni, cuil=:cuil, nacionalidad=:nacionalidad, lugar_nac=:lugar_nac, fecha_nac=:fecha_nac, domicilio=:domicilio, telefono=:telefono, celular=:celular, email=:email  WHERE id_persona=:id_persona";
-		$query = $dbConn->prepare($sql);
-				
-		$query->bindparam(':id_persona', $id_persona);
-		
-		$query->bindparam(':apellido', $apellido);
-		$query->bindparam(':nombre', $nombre);
-		$query->bindparam(':dni', $dni);
-		$query->bindparam(':cuil', $cuil);
-		$query->bindparam(':nacionalidad', $nacionalidad);
-		$query->bindparam(':lugar_nac', $lugar_nac);
-		$query->bindparam(':fecha_nac', $fechaBD);
-		$query->bindparam(':domicilio', $domicilio);
-		$query->bindparam(':telefono', $telefono);
-		$query->bindparam(':celular', $celular);
-		$query->bindparam(':email', $email);
-
-		$query->execute();
-		
-		// Alternative to above bindparam and execute
-		// $query->execute(array(':id' => $id, ':name' => $name, ':email' => $email, ':age' => $age));
-				
-		//redirectig to the display page. In our case, it is index.php
-		//header("Location: index.php");
-        header("Location:../php/cv_datos_personales_leer.php");
-}
-?>
-
-<?php
-
-    //getting id from url
-    $id_persona = $_GET['id_persona'];
-
-    //selecting data associated with this particular id
-    $sql = "SELECT apellido, nombre, dni, cuil, nacionalidad, lugar_nac, fecha_nac, domicilio, telefono, celular, email FROM datos_personas WHERE id_persona=:id_persona";
-    $query = $dbConn->prepare($sql);
-    $query->execute(array(':id_persona' => $id_persona));
-
-    while($row = $query->fetch(PDO::FETCH_ASSOC))
-    {
-
-    	$apellido = $row['apellido'];
-    	$nombre = $row['nombre'];
-    	$dni = $row['dni'];
-    	$cuil = $row['cuil'];
-    	$nacionalidad =$row['nacionalidad'];
-    	$lugar_nac = $row['lugar_nac'];
-    	$fecha_nac = $row['fecha_nac'];
-    	$domicilio = $row['domicilio'];
-    	$telefono = $row['telefono'];
-    	$celular = $row['celular'];
-    	$email =$row['email'];	
-
-        $fecha_nac = date('d-m-Y', strtotime($fecha_nac));
-        $fechaBD = str_replace('-', '/', $fecha_nac);
-    }
-
-?>
+<?php session_start(); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -163,7 +81,7 @@ if(isset($_POST['update']))
                         <li>
                             <a href="../php/cv_estudios_cursados_leer.php"><i class="fa fa-mortar-board fa-fw"></i> Estudios Cursados</a>
                         </li>
-                              <li>
+                        <li>
                             <a href="#"><i class="fa fa-edit fa-fw"></i> Antecedentes<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -211,66 +129,59 @@ if(isset($_POST['update']))
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form role="form" action="../php/cv_datos_personales_modificar.php" method="post" name="form1">
+                                    <form role="form" action="../php/cv_datos_personales_agregar.php" method="post" name="form1">
                                         <div class="form-group">
                                             <label>Apellido</label>
-                                            <input type="text" name="apellido" class="form-control" value="<?php echo $apellido;?>">
+                                            <input type="text" name="apellido" class="form-control" >
                                             <!-- <p class="help-block">Example block-level help text here.</p> -->      
                                         </div>
                                         <div class="form-group">
                                             <label>Nombres</label>
-                                            <input  type="text" name="nombre" class="form-control" value="<?php echo $nombre;?>">                                         
+                                            <input  type="text" name="nombre" class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label>DNI</label>
-                                            <input type="text" name="dni" class="form-control" value="<?php echo $dni;?>">
+                                            <input type="text" name="dni" class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label>CUIL/CUIT</label>
-                                            <input type="text" name="cuil" class="form-control" value="<?php echo $cuil;?>">
+                                            <input type="text" name="cuil" class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label>Nacionalidad</label>
-                                            <input type="text" name="nacionalidad" class="form-control" value="<?php echo $nacionalidad;?>">
+                                            <input type="text" name="nacionalidad" class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label>Lugar de Nacimiento</label>
-                                            <input type="text" name="lugar_nac" class="form-control" value="<?php echo $lugar_nac;?>">
+                                            <input type="text" name="lugar_nac" class="form-control">
                                         </div>
                                          <div class="form-group">
                                             <label>Fecha de Nacimiento</label>
-                                            <input type="text" name="fecha_nac" class="form-control" value="<?php echo $fechaBD;?>">
+                                            <input type="text" name="fecha_nac" class="form-control">
                                         </div>
 
                                         <div class="form-group">
                                             <label>Domicilio</label>
-                                            <input type="text" name="domicilio" class="form-control" value="<?php echo $domicilio;?>">
+                                            <input type="text" name="domicilio" class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label>Telefono Fijo</label>
-                                            <input type="text" name="telefono" class="form-control" value="<?php echo $telefono;?>">
+                                            <input type="text" name="telefono" class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label>Celular</label>
-                                            <input type="text" name="celular" class="form-control" value="<?php echo $celular;?>">
+                                            <input type="text" name="celular" class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label>Email</label>
-                                            <input type="text" name="email" class="form-control" value="<?php echo $email;?>">
+                                            <input type="text" name="email" class="form-control">
                                         </div>
-
-										<div class="form-group">
-                                            <label>Id Persona</label>
-                                            <input type="text" name="id_persona" value="<?php echo $_GET['id_persona'];?>">
-                                        </div>
-
                                         
-                                        
-                                        <td><input type="submit" name="update" value="Aceptar" class="btn btn-default"></td>
-                                       
-                                        <a href="../php/cv_datos_personales_leer.php" class="btn btn-default">Cancelar</a>
-                                        
+                                         <td><input type="submit" name="Submit" value="Aceptar" class="btn btn-default"></td>
+                                         <td><a href="../php/cv_datos_personales_leer.php" class="btn btn-default">Cancelar</a></td> 
+                                                                             
                                     </form>
+
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
                                 <div class="col-lg-6">
@@ -287,11 +198,14 @@ if(isset($_POST['update']))
                                     </form>
                                     
                                 </div>
+
                                 <!-- /.col-lg-6 (nested) -->
                             </div>
                             <!-- /.row (nested) -->
+                            
                         </div>
                         <!-- /.panel-body -->
+     
                     </div>
                     <!-- /.panel -->
                 </div>
@@ -315,9 +229,7 @@ if(isset($_POST['update']))
 
     <!-- Custom Theme JavaScript -->
     <script src="../../../dist/js/sb-admin-2.js"></script>
-
+    
 </body>
 
 </html>
-
-

@@ -5,40 +5,24 @@ include_once("config.php");
 
 if(isset($_POST['update']))
 {	
-	$id_persona = $_POST['id_persona'];
+	$id_ant_lab = $_POST['id_ant_lab'];
 	
-	$apellido = $_POST['apellido'];
-	$nombre = $_POST['nombre'];
-	$dni = $_POST['dni'];
-	$cuil = $_POST['cuil'];
-	$nacionalidad = $_POST['nacionalidad'];
-	$lugar_nac = $_POST['lugar_nac'];
-	$fecha_nac = $_POST['fecha_nac'];
-	$domicilio = $_POST['domicilio'];
-	$telefono = $_POST['telefono'];
-	$celular = $_POST['celular'];
-	$email = $_POST['email'];	
-	
-    $fecha_nac = str_replace('/', '-', $fecha_nac);
-    $fechaBD = date("Y-m-d", strtotime($fecha_nac));
- 
+	$desde = $_POST['desde'];
+    $hasta = $_POST['hasta'];
+    $organizacion = $_POST['organizacion'];
+    $cargo = $_POST['cargo'];
+
+    
 		//updating the table
-		$sql = "UPDATE datos_personas SET apellido=:apellido, nombre=:nombre, dni=:dni, cuil=:cuil, nacionalidad=:nacionalidad, lugar_nac=:lugar_nac, fecha_nac=:fecha_nac, domicilio=:domicilio, telefono=:telefono, celular=:celular, email=:email  WHERE id_persona=:id_persona";
+		$sql = "UPDATE antecedentes_laborales SET desde=:desde, hasta=:hasta, organizacion=:organizacion, cargo=:cargo  WHERE id_ant_lab=:id_ant_lab";
 		$query = $dbConn->prepare($sql);
 				
-		$query->bindparam(':id_persona', $id_persona);
+		$query->bindparam(':id_ant_lab', $id_ant_lab);
 		
-		$query->bindparam(':apellido', $apellido);
-		$query->bindparam(':nombre', $nombre);
-		$query->bindparam(':dni', $dni);
-		$query->bindparam(':cuil', $cuil);
-		$query->bindparam(':nacionalidad', $nacionalidad);
-		$query->bindparam(':lugar_nac', $lugar_nac);
-		$query->bindparam(':fecha_nac', $fechaBD);
-		$query->bindparam(':domicilio', $domicilio);
-		$query->bindparam(':telefono', $telefono);
-		$query->bindparam(':celular', $celular);
-		$query->bindparam(':email', $email);
+		$query->bindparam(':desde', $desde);
+        $query->bindparam(':hasta', $hasta);
+        $query->bindparam(':organizacion', $organizacion);
+        $query->bindparam(':cargo', $cargo);
 
 		$query->execute();
 		
@@ -47,37 +31,27 @@ if(isset($_POST['update']))
 				
 		//redirectig to the display page. In our case, it is index.php
 		//header("Location: index.php");
-        header("Location:../php/cv_datos_personales_leer.php");
+        header("Location:../php/cv_antecedentes_laborales_leer.php");
 }
 ?>
 
 <?php
 
     //getting id from url
-    $id_persona = $_GET['id_persona'];
+    $id_ant_lab = $_GET['id_ant_lab'];
 
     //selecting data associated with this particular id
-    $sql = "SELECT apellido, nombre, dni, cuil, nacionalidad, lugar_nac, fecha_nac, domicilio, telefono, celular, email FROM datos_personas WHERE id_persona=:id_persona";
+    $sql = "SELECT desde, hasta, organizacion, cargo FROM antecedentes_laborales WHERE id_ant_lab=:id_ant_lab";
     $query = $dbConn->prepare($sql);
-    $query->execute(array(':id_persona' => $id_persona));
+    $query->execute(array(':id_ant_lab' => $id_ant_lab));
 
     while($row = $query->fetch(PDO::FETCH_ASSOC))
     {
 
-    	$apellido = $row['apellido'];
-    	$nombre = $row['nombre'];
-    	$dni = $row['dni'];
-    	$cuil = $row['cuil'];
-    	$nacionalidad =$row['nacionalidad'];
-    	$lugar_nac = $row['lugar_nac'];
-    	$fecha_nac = $row['fecha_nac'];
-    	$domicilio = $row['domicilio'];
-    	$telefono = $row['telefono'];
-    	$celular = $row['celular'];
-    	$email =$row['email'];	
-
-        $fecha_nac = date('d-m-Y', strtotime($fecha_nac));
-        $fechaBD = str_replace('-', '/', $fecha_nac);
+    	$desde = $row['desde'];
+        $hasta = $row['hasta'];
+        $organizacion = $row['organizacion'];
+        $cargo = $row['cargo'];
     }
 
 ?>
@@ -206,87 +180,39 @@ if(isset($_POST['update']))
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Datos Personales
+                            Antecedentes Laborales
                         </div>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form role="form" action="../php/cv_datos_personales_modificar.php" method="post" name="form1">
+                                    <form role="form" action="../php/cv_antecedentes_laborales_modificar.php" method="post" name="form1">
                                         <div class="form-group">
-                                            <label>Apellido</label>
-                                            <input type="text" name="apellido" class="form-control" value="<?php echo $apellido;?>">
+                                            <label>Desde</label>
+                                            <input type="text" name="desde" class="form-control" value="<?php echo $desde;?>">
                                             <!-- <p class="help-block">Example block-level help text here.</p> -->      
                                         </div>
                                         <div class="form-group">
-                                            <label>Nombres</label>
-                                            <input  type="text" name="nombre" class="form-control" value="<?php echo $nombre;?>">                                         
+                                            <label>Hasta</label>
+                                            <input  type="text" name="hasta" class="form-control" value="<?php echo $hasta;?>">                                         
                                         </div>
                                         <div class="form-group">
-                                            <label>DNI</label>
-                                            <input type="text" name="dni" class="form-control" value="<?php echo $dni;?>">
+                                            <label>Organizacion</label>
+                                            <input type="text" name="organizacion" class="form-control" value="<?php echo $organizacion;?>">
                                         </div>
                                         <div class="form-group">
-                                            <label>CUIL/CUIT</label>
-                                            <input type="text" name="cuil" class="form-control" value="<?php echo $cuil;?>">
+                                            <label>Cargo</label>
+                                            <input type="text" name="cargo" class="form-control" value="<?php echo $cargo;?>">
                                         </div>
-                                        <div class="form-group">
-                                            <label>Nacionalidad</label>
-                                            <input type="text" name="nacionalidad" class="form-control" value="<?php echo $nacionalidad;?>">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Lugar de Nacimiento</label>
-                                            <input type="text" name="lugar_nac" class="form-control" value="<?php echo $lugar_nac;?>">
-                                        </div>
-                                         <div class="form-group">
-                                            <label>Fecha de Nacimiento</label>
-                                            <input type="text" name="fecha_nac" class="form-control" value="<?php echo $fechaBD;?>">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Domicilio</label>
-                                            <input type="text" name="domicilio" class="form-control" value="<?php echo $domicilio;?>">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Telefono Fijo</label>
-                                            <input type="text" name="telefono" class="form-control" value="<?php echo $telefono;?>">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Celular</label>
-                                            <input type="text" name="celular" class="form-control" value="<?php echo $celular;?>">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Email</label>
-                                            <input type="text" name="email" class="form-control" value="<?php echo $email;?>">
-                                        </div>
-
-										<div class="form-group">
-                                            <label>Id Persona</label>
-                                            <input type="text" name="id_persona" value="<?php echo $_GET['id_persona'];?>">
-                                        </div>
-
                                         
                                         
                                         <td><input type="submit" name="update" value="Aceptar" class="btn btn-default"></td>
                                        
-                                        <a href="../php/cv_datos_personales_leer.php" class="btn btn-default">Cancelar</a>
+                                        <a href="../php/cv_antecedentes_laborales_leer.php" class="btn btn-default">Cancelar</a>
                                         
                                     </form>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
-                                <div class="col-lg-6">
-                                    <form role="form">
-
-                                        <div align="center" class="form-group">
-                                            <img src="../images/default-user.png" width="200" height="200" >
-                                        </div>
-
-                                        <div align="center" class="form-group">
-                                            <label>Buscar Foto</label>
-                                            <input type="file">
-                                        </div>
-                                    </form>
-                                    
-                                </div>
+                                
                                 <!-- /.col-lg-6 (nested) -->
                             </div>
                             <!-- /.row (nested) -->

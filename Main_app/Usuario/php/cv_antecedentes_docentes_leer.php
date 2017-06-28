@@ -4,7 +4,7 @@
     include_once("config.php");
 
     //fetching data in descending order (lastest entry first)
-    $result = $dbConn->query("SELECT * FROM datos_personas ORDER BY id_persona ASC");
+    $result = $dbConn->query("SELECT * FROM antecedentes_docentes ORDER BY id_ant_doc ASC");
 ?>
 
 <!DOCTYPE html>
@@ -132,7 +132,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Datos Personales
+                            Antecedentes Docentes
                         </div>
 
                         <!-- /.panel-heading -->
@@ -143,13 +143,12 @@
                                 <table align = "center" width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>Apellido</th>
-                                            <th>Nombre</th>
-                                            <th>DNI</th>
-                                            <th>CUIL/CUIT</th>
-                                            <th>Domicilio</th>
-                                            <th>Telefono</th>
-                                            <th>Celular</th>
+                                            <th>Desde</th>
+                                            <th>Hasta</th>
+                                            <th>Universidad</th>
+                                            <th>Cargo</th>
+                                            <th>Catedra</th>
+                                            <th>Carrera</th>
                                             <th>Editar</th>
                                             <th>Borrar</th>
                                         </tr>
@@ -159,15 +158,14 @@
                                            <?php    
                                                 while($row = $result->fetch(PDO::FETCH_ASSOC)) {        
                                                 echo "<tr>";
-                                                echo "<td>".$row['apellido']."</td>";
-                                                echo "<td>".$row['nombre']."</td>";
-                                                echo "<td>".$row['dni']."</td>"; 
-                                                echo "<td>".$row['cuil']."</td>";
-                                                echo "<td>".$row['domicilio']."</td>";
-                                                echo "<td>".$row['telefono']."</td>"; 
-                                                echo "<td>".$row['celular']."</td>"; 
-                                                echo "<td><a href= \"cv_datos_personales_modificar.php?id_persona=$row[id_persona]\">Modificar</a></td>";
-                                                echo "<td><a href=\"cv_datos_personales_borrar.php?id_persona=$row[id_persona]\" onClick=\"return confirm('Estas seguro de querer borrar?')\" >Borrar</a></td>";       
+                                                echo "<td>".$row['desde']."</td>";
+                                                echo "<td>".$row['hasta']."</td>"; 
+                                                echo "<td>".$row['universidad']."</td>";
+                                                echo "<td>".$row['cargo']."</td>";
+                                                echo "<td>".$row['catedra']."</td>"; 
+                                                echo "<td>".$row['carrera']."</td>";
+                                                echo "<td><a href= \"cv_antecedentes_docentes_modificar.php?id_ant_doc=$row[id_ant_doc]\">Modificar</a></td>";
+                                                echo "<td><a href=\"cv_antecedentes_docentes_borrar.php?id_ant_doc=$row[id_ant_doc]\" onClick=\"return confirm('Estas seguro de querer borrar?')\" >Borrar</a></td>";       
                                               }
                                             ?>
                                        
@@ -175,7 +173,7 @@
                             </table>
                         </div>
                         
-                            <a href="../php/cv_datos_personales.php" class="btn btn-primary btn-sm">Agregar</a>
+                            <a href="../php/cv_antecedentes_docentes.php" class="btn btn-primary btn-sm">Agregar</a>
                         </div>
                         <!-- /.panel-body -->
                     </div>
