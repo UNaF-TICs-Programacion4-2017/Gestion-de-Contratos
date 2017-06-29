@@ -17,13 +17,13 @@ jQuery(document).on('submit','#formlg', function(event){
 		if (!objRespuesta.error && objRespuesta.tipo.tipo_usuario){
 			console.log(objRespuesta.tipo.tipo_usuario);
 			if (objRespuesta.tipo.tipo_usuario == "Admin"){
-				window.location = 'Main_app/Usuario/html';					
+				$(location).attr('href','Main_app/Admin/');
 				//window.location = 'Main_app/Admin/';
 				//$(location).attr('href','Main_app/Admin/');
-				//$(location).attr('href','http://www.google.com.ar');
+				
 				//location.href = 'Main_app/Admin/';
 			}else if(objRespuesta.tipo.tipo_usuario == "User"){
-				$(location).attr('href','Main_app/Usuario/html');
+				$(location).attr('href','Main_app/Usuario/');
 				//location.href = 'Main_app/Usuario/';
 			}	
 		}else{
