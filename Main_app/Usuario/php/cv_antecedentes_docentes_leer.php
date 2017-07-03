@@ -119,7 +119,7 @@
                             <a href="#"><i class="fa fa-edit fa-fw"></i> Antecedentes<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="../php/cv_antecedentes_docentes_leer.php">Docentes</a>
+                                    <a href="#">Docentes</a>
                                 </li>
                                 <li>
                                     <a href="../php/cv_antecedentes_laborales_leer.php">Laborales</a>
@@ -127,14 +127,12 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li>
-                            <a href="../php/cv_publicaciones_leer.php"><i class="fa fa-book fa-fw"></i>Publicaciones y Trabajos de Investigacion</a>
-                        </li>
+                        
                         <li>
                             <a href="forms.html"><i class="fa fa-search fa-fw"></i> Ver Curriculum</a>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-check-square fa-fw"></i> Ver Materias Asignadas</a>
+                            <a href="user_vermiscontratos.php"><i class="fa fa-check-square fa-fw"></i> Ver Materias Asignadas</a>
                         </li>
                         
                     </ul>
@@ -176,6 +174,7 @@
                                             <th>Cargo</th>
                                             <th>Catedra</th>
                                             <th>Carrera</th>
+                                            <th>Facultad</th>
                                             <th>Editar</th>
                                             <th>Borrar</th>
                                         </tr>

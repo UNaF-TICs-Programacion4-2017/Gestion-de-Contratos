@@ -34,7 +34,7 @@
 
 </head>
 <?php  
-print_r($_SESSION);
+//print_r($_SESSION);
 ?>
 <body>
 
@@ -131,7 +131,7 @@ print_r($_SESSION);
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form role="form" action="../php/cv_datos_personales_agregar.php" method="post" name="form1">
+                                    <form role="form" enctype="multipart/form-data" action="../php/cv_datos_personales_agregar.php" method="post" name="form1">
                                         <div class="form-group">
                                             <label>Apellido</label>
                                             <input type="text" name="apellido" class="form-control" >
@@ -181,22 +181,23 @@ print_r($_SESSION);
                                         
                                          <td><input type="submit" name="Submit" value="Aceptar" class="btn btn-default"></td>
                                          <td><a href="../php/cv_datos_personales_leer.php" class="btn btn-default">Cancelar</a></td> 
-                                                                             
-                                    </form>
-
-                                </div>
-                                <!-- /.col-lg-6 (nested) -->
-                                <div class="col-lg-6">
-                                    <form role="form">
-
+                                          
                                         <div align="center" class="form-group">
                                             <img src="../images/default-user.png" width="200" height="200" >
                                         </div>
 
                                         <div align="center" class="form-group">
                                             <label>Buscar Foto</label>
-                                            <input type="file">
-                                        </div>
+                                            <input type="file" id="foto" name="foto">
+                                        </div>                                   
+                                    </form>
+
+                                </div>
+                                <!-- /.col-lg-6 (nested) -->
+                                <div class="col-lg-6">
+                                    <form enctype="multipart/form-data" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>"role="form">
+
+                                        
                                     </form>
                                     
                                 </div>

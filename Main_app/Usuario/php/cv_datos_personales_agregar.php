@@ -12,6 +12,12 @@ include_once("config.php");
 print_r($_SESSION);
 echo $_SESSION['id'];
 if(isset($_POST['Submit'])) {	
+	$check = @getimagesize($_FILES['foto']['tmp_name']);
+	if ($check !== false) {
+		$carpeta_destino = 'fotos/';
+		$archivo_subido = $carpeta_destino . $_FILES['foto']['name'];
+		move_uploaded_file($_FILES['foto']['tmp_name'], $archivo_subido);
+	}
 	$apellido = $_POST['apellido'];
 	$nombre = $_POST['nombre'];
 	$dni = $_POST['dni'];
@@ -29,7 +35,7 @@ if(isset($_POST['Submit'])) {
 	$fechaBD = date("Y-m-d", strtotime($fecha_nac));
 		
 		//insert data to database		
-		$sql = "INSERT INTO datos_personas(apellido, nombre, dni, cuil, nacionalidad, lugar_nac, fecha_nac, domicilio, telefono, celular, email, rela_usuario) VALUES(:apellido, :nombre, :dni, :cuil, :nacionalidad, :lugar_nac, :fecha_nac, :domicilio, :telefono, :celular, :email, :rela_usuario)";
+		$sql = "INSERT INTO datos_personas(apellido, nombre, dni, cuil, nacionalidad, lugar_nac, fecha_nac, domicilio, telefono, celular, email, rela_usuario, foto) VALUES(:apellido, :nombre, :dni, :cuil, :nacionalidad, :lugar_nac, :fecha_nac, :domicilio, :telefono, :celular, :email, :rela_usuario, :foto)";
 		$query = $dbConn->prepare($sql);
 				
 		$query->bindparam(':apellido', $apellido);
@@ -44,6 +50,7 @@ if(isset($_POST['Submit'])) {
 		$query->bindparam(':celular', $celular);
 		$query->bindparam(':email', $email);
 		$query->bindparam(':rela_usuario', $rela_usuario);
+		$query->bindparam(':foto', $_FILES['foto']['name']);
 		$query->execute();
 		
 		// Alternative to above bindparam and execute

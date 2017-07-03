@@ -167,22 +167,20 @@ if(isset($_POST['update']))
                             <a href="#"><i class="fa fa-edit fa-fw"></i> Antecedentes<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="cvantdoc1.html">Docentes</a>
+                                    <a href="cv_antecedentes_docentes_leer.php">Docentes</a>
                                 </li>
                                 <li>
-                                    <a href="cvantlab1.html">Laborales</a>
+                                    <a href="cv_antecedentes_laborales_leer.php">Laborales</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li>
-                            <a href="cvpublicaciones1.html"><i class="fa fa-book fa-fw"></i>Publicaciones y Trabajos de Investigacion</a>
-                        </li>
+                        
                         <li>
                             <a href="forms.html"><i class="fa fa-search fa-fw"></i> Ver Curriculum</a>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-check-square fa-fw"></i> Ver Materias Asignadas</a>
+                            <a href="user_vermiscontratos.php"><i class="fa fa-check-square fa-fw"></i> Ver Materias Asignadas</a>
                         </li>
                         
                     </ul>
@@ -219,7 +217,7 @@ if(isset($_POST['update']))
                                         </div>
                                         <div class="form-group">
                                             <label>Nombres</label>
-                                            <input  type="text" name="nombre" class="form-control" value="<?php echo $nombre;?>">                                         
+                                            <input  type="text" name="nombre" class="form-control" value="<?php echo $nombre;?>">                                   
                                         </div>
                                         <div class="form-group">
                                             <label>DNI</label>
@@ -241,7 +239,6 @@ if(isset($_POST['update']))
                                             <label>Fecha de Nacimiento</label>
                                             <input type="text" name="fecha_nac" class="form-control" value="<?php echo $fechaBD;?>">
                                         </div>
-
                                         <div class="form-group">
                                             <label>Domicilio</label>
                                             <input type="text" name="domicilio" class="form-control" value="<?php echo $domicilio;?>">
@@ -261,14 +258,14 @@ if(isset($_POST['update']))
 
 										<div class="form-group">
                                             <label>Id Persona</label>
-                                            <input type="text" name="id_persona" value="<?php echo $_GET['id_persona'];?>">
+                                            <input type="text" name="id_persona" readonly="readonly" value="<?php echo $_GET['id_persona'];?>">
                                         </div>
 
                                         
                                         
                                         <td><input type="submit" name="update" value="Aceptar" class="btn btn-default"></td>
                                        
-                                        <a href="../php/cv_datos_personales_leer.php" class="btn btn-default">Cancelar</a>
+                                        <a href="cv_datos_personales_leer.php" class="btn btn-default">Cancelar</a>
                                         
                                     </form>
                                 </div>

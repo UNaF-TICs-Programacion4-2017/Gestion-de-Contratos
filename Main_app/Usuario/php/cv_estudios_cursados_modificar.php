@@ -136,31 +136,28 @@ if(isset($_POST['update_ec'])) {
                     <ul class="nav" id="side-menu">
                        
                         <li>
-                            <a href="../php/cv_datos_personales_leer.php"><i class="fa fa-user fa-fw"></i> Datos Personales</a>
+                            <a href="cv_datos_personales_leer.php"><i class="fa fa-user fa-fw"></i> Datos Personales</a>
                         </li>
                         <li>
-                            <a href="../php/cv_estudios_cursados_leer.php"><i class="fa fa-mortar-board fa-fw"></i> Estudios Cursados</a>
+                            <a href="cv_estudios_cursados_leer.php"><i class="fa fa-mortar-board fa-fw"></i> Estudios Cursados</a>
                         </li>
                               <li>
                             <a href="#"><i class="fa fa-edit fa-fw"></i> Antecedentes<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="../php/cv_antecedentes_docentes_leer.php">Docentes</a>
+                                    <a href="cv_antecedentes_docentes_leer.php">Docentes</a>
                                 </li>
                                 <li>
-                                    <a href="../php/cv_antecedentes_laborales_leer.php">Laborales</a>
+                                    <a href="cv_antecedentes_laborales_leer.php">Laborales</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="../php/cv_publicaiones_leer.php"><i class="fa fa-book fa-fw"></i>Publicaciones y Trabajos de Investigacion</a>
-                        </li>
-                        <li>
                             <a href="forms.html"><i class="fa fa-search fa-fw"></i> Ver Curriculum</a>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-check-square fa-fw"></i> Ver Materias Asignadas</a>
+                            <a href="user_vermiscontratos"><i class="fa fa-check-square fa-fw"></i> Ver Materias Asignadas</a>
                         </li>
                         
                     </ul>
@@ -222,11 +219,11 @@ if(isset($_POST['update_ec'])) {
                                         
                                         <div class="form-group">
                                             <label>Id titulo</label>
-                                            <input type="text" name="id_titulo" value="<?php echo $_GET['id_titulo'];?>">
+                                            <input type="text" name="id_titulo" readonly="readonly" value="<?php echo $_GET['id_titulo'];?>">
                                         </div>
 
                                         <td><input type="submit" name="update_ec" value="Aceptar" class="btn btn-default"></td>
-                                        <td><a href="../php/cv_estudios_cursados_leer.php" class="btn btn-default">Cancelar</a></td>
+                                        <td><a href="cv_estudios_cursados_leer.php" class="btn btn-default">Cancelar</a></td>
 
                                         </div>
                                                                                                                      

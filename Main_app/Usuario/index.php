@@ -111,22 +111,20 @@ echo '<script languaje="JavaScript">
                             <a href="#"><i class="fa fa-edit fa-fw"></i> Antecedentes<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="../usuario/php/cv_antecedentes_docentes.php">Docentes</a>
+                                    <a href="../usuario/php/cv_antecedentes_docentes_leer.php">Docentes</a>
                                 </li>
                                 <li>
-                                    <a href="../usuario/php/cv_antecedentes_laborales.php">Laborales</a>
+                                    <a href="../usuario/php/cv_antecedentes_laborales_leer.php">Laborales</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li>
-                            <a href="cvpublicaciones1.html"><i class="fa fa-book fa-fw"></i>Publicaciones y Trabajos de Investigacion</a>
-                        </li>
+
                         <li>
                             <a href="forms.html"><i class="fa fa-search fa-fw"></i> Ver Curriculum</a>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-check-square fa-fw"></i> Ver Materias Asignadas</a>
+                            <a href="../usuario/php/user_vermiscontratos.php"><i class="fa fa-check-square fa-fw"></i><span class="badge"> Ver Materias Asignadas</span></a>
                         </li>
                         
                     </ul>

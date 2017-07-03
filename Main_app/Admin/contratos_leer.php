@@ -85,15 +85,15 @@
                             <a href="panel_control.php"><i class="fa fa-dashboard fa-fw"></i>Panel de Control</a>
                         </li>
 
-                        <!--<li>
-                            <a href="forms.html"><i class="fa fa-file-text fa-fw"></i> Dictamenes</a>
+                        <li>
+                            <a href="admin_contactos.php"><i class="fa fa-file-text fa-fw"></i>Teléfonos de Contacto</a>
                        <li>
-                       -->
+                       
                          <li>
-                            <a href="contratos_leer.php"><i class="fa fa-file-text-o fa-fw"></i>Contratos</a>
+                            <a href="#"><i class="fa fa-file-text-o fa-fw"></i>Contratos</a>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-user fa-fw"></i>Usuarios</a>
+                            <a href="admin_users.php"><i class="fa fa-user fa-fw"></i>Usuarios</a>
                         </li>
                     </ul>
                 </div>
@@ -135,7 +135,7 @@
                                             <th>CUIL/CUIT</th>
                                             <th>Domicilio</th>
                                             <th>Asignar</th>
-                                            <th>Modificar</th>
+                                            
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -149,11 +149,11 @@
                                                 echo "<td>".$row['cuil']."</td>";
                                                 echo "<td>".$row['domicilio']."</td>";
                                                 echo "<td><a href= \"contratos_asignar.php?id_persona=$row[id_persona]\"><b>Asignar Contrato</b></a></td>";
-                                                echo "<td><a href=\"contratos_modificar.php?id_persona=$row[id_persona]\" onClick=\"return confirm('Estas seguro de querer Modificar?')\" >Modificar</a></td>";       
+                                                //echo "<td><a href=\"contratos_modificar.php?id_persona=$row[id_persona]\" onClick=\"return confirm('Estas seguro de querer Modificar?')\" >Modificar</a></td>";       
                                               }
                                             ?>      
                                     </tbody>
-                            </table>
+                                </table>
                         <!-- /.panel-body -->
                     </div>
                     <!-- /.panel -->

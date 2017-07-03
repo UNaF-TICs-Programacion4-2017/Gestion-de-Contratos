@@ -79,15 +79,20 @@
                             <a href="panel_control.php"><i class="fa fa-dashboard fa-fw"></i>Panel de Control</a>
                         </li>
 
-                        <!--<li>
-                            <a href="forms.html"><i class="fa fa-file-text fa-fw"></i> Dictamenes</a>
+                        <li>
+                            <a href="admin_contactos.php"><i class="fa fa-file-text fa-fw"></i>Teléfonos de Contacto</a>
                        <li>
-                       -->
+                       
                          <li>
                             <a href="contratos_leer.php"><i class="fa fa-file-text-o fa-fw"></i>Contratos</a>
                         </li>
+
                         <li>
-                            <a href="forms.html"><i class="fa fa-user fa-fw"></i>Usuarios</a>
+                            <a href="admin_listacontratados.php"><i class="fa fa-file-text fa-fw"></i>Lista de Personas Contratadas</a>
+                        <li>
+                        
+                        <li>
+                            <a href="admin_users.php"><i class="fa fa-user fa-fw"></i>Usuarios</a>
                         </li>
                     </ul>
                 </div>

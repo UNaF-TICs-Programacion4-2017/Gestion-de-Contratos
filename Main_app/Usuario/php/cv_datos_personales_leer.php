@@ -90,7 +90,7 @@
                     <ul class="nav" id="side-menu">
                        
                         <li>
-                            <a href="../php/cv_datos_personales_leer.php"><i class="fa fa-user fa-fw"></i> Datos Personales</a>
+                            <a href="#"><i class="fa fa-user fa-fw"></i> Datos Personales</a>
                         </li>
                         <li>
                             <a href="../php/cv_estudios_cursados_leer.php"><i class="fa fa-mortar-board fa-fw"></i> Estudios Cursados</a>
@@ -107,14 +107,12 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li>
-                            <a href="cvpublicaciones1.html"><i class="fa fa-book fa-fw"></i>Publicaciones y Trabajos de Investigacion</a>
-                        </li>
+                        
                         <li>
                             <a href="forms.html"><i class="fa fa-search fa-fw"></i> Ver Curriculum</a>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-check-square fa-fw"></i> Ver Materias Asignadas</a>
+                            <a href="user_vermiscontratos.php"><i class="fa fa-check-square fa-fw"></i> Ver Materias Asignadas</a>
                         </li>
                         
                     </ul>
@@ -156,7 +154,7 @@
                                             <th>Telefono</th>
                                             <th>Celular</th>
                                             <th>Editar</th>
-                                            <th>Borrar</th>
+                                            <!--<th>Borrar</th>-->
                                         </tr>
                                     </thead>
                                     <tbody>                                     
@@ -173,14 +171,14 @@
                                                 echo "<td>".$row['celular']."</td>"; 
                                                 if (!empty($contenido)) {
                                                    echo "<td><a href= \"cv_datos_personales_modificar.php?id_persona=$row[id_persona]\">Modificar</a></td>";
-                                                    echo "<td><a href=\"cv_datos_personales_borrar.php?id_persona=$row[id_persona]\" onClick=\"return confirm('Estas seguro de querer borrar?')\" >Borrar</a></td>";
+                                                   //echo "<td><a href=\"cv_datos_personales_borrar.php?id_persona=$row[id_persona]\" onClick=\"return confirm('Estas seguro de querer borrar?')\" >Borrar</a></td>";
                                                 }
                                                 
                                             ?>                                        
                                     </tbody>
                             </table>
                         </div >                        
-                            <a href="../html/cv_datos_personales.php" id="btnagregar" class="btn btn-primary btn-sm">Agregar</a>
+                            <a href="cv_datos_personales.php" id="btnagregar" class="btn btn-primary btn-sm">Agregar</a>
                         </div>
                         <!-- /.panel-body -->
                     </div>

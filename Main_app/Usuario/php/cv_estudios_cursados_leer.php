@@ -25,7 +25,6 @@
       echo "<td>".$fila['universidad']."</td>";
       echo "<td><a href= \"cv_estudios_cursados_modificar.php?id_titulo=$fila[id_titulo]\">Modificar</a></td>";
       echo "<td><a href=\"cv_estudios_cursados_borrar.php?id_titulo=$fila[id_titulo]\" onClick=\"return confirm('Estas seguro de querer borrar?')\" >Borrar</a></td>"; 
-      echo "<td>".$fila['id_titulo']."</td>";
     }
     $sentencia = null;
   }
@@ -111,31 +110,29 @@
                     <ul class="nav" id="side-menu">
                        
                         <li>
-                            <a href="../php/cv_datos_personales_leer.php"><i class="fa fa-user fa-fw"></i> Datos Personales</a>
+                            <a href="cv_datos_personales_leer.php"><i class="fa fa-user fa-fw"></i> Datos Personales</a>
                         </li>
                         <li>
-                            <a href="../php/cv_estudios_cursados_leer.php"><i class="fa fa-mortar-board fa-fw"></i> Estudios Cursados</a>
+                            <a href="#"><i class="fa fa-mortar-board fa-fw"></i> Estudios Cursados</a>
                         </li>
                               <li>
                             <a href="#"><i class="fa fa-edit fa-fw"></i> Antecedentes<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="../php/cv_antecedentes_docentes_leer.php">Docentes</a>
+                                    <a href="cv_antecedentes_docentes_leer.php">Docentes</a>
                                 </li>
                                 <li>
-                                    <a href="../php/cv_antecedentes_laborales_leer.php">Laborales</a>
+                                    <a href="cv_antecedentes_laborales_leer.php">Laborales</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li>
-                            <a href="cvpublicaciones1.html"><i class="fa fa-book fa-fw"></i>Publicaciones y Trabajos de Investigacion</a>
-                        </li>
+                       
                         <li>
                             <a href="forms.html"><i class="fa fa-search fa-fw"></i> Ver Curriculum</a>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-check-square fa-fw"></i> Ver Materias Asignadas</a>
+                            <a href="user_vermiscontratos.php"><i class="fa fa-check-square fa-fw"></i>Ver Materias Asignadas</a>
                         </li>
                         
                     </ul>
@@ -179,7 +176,6 @@
                                             <th>Universidad</th>
                                             <th>Editar</th>
                                             <th>Borrar</th>
-                                            <th>id</th>
                                         </tr>
                                     </thead>
                                     <tbody>
