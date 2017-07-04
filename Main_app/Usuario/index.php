@@ -53,7 +53,7 @@
                     
                     //$GLOBALS['idusuario'] = $_SESSION['id'];
                     //$idusuario = $_SESSION['id'];
-                    print_r($_SESSION);
+                    //print_r($_SESSION);
                     $usuarioactual = strtoupper($_SESSION['usuariolg']);
                     //print_r($_POST);
                     

@@ -123,14 +123,9 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
+                        
                         <li>
-                            <a href="cvpublicaciones1.html"><i class="fa fa-book fa-fw"></i>Publicaciones y Trabajos de Investigacion</a>
-                        </li>
-                        <li>
-                            <a href="forms.html"><i class="fa fa-search fa-fw"></i> Ver Curriculum</a>
-                        </li>
-                        <li>
-                            <a href="forms.html"><i class="fa fa-check-square fa-fw"></i> Ver Materias Asignadas</a>
+                            <a href="user_vermiscontratos.php"><i class="fa fa-check-square fa-fw"></i> Ver Materias Asignadas</a>
                         </li>
                         
                     </ul>

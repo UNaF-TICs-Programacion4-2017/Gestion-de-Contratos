@@ -4,7 +4,7 @@
     include_once("config.php");
 
     //fetching data in descending order (lastest entry first)
-    $result = $dbConn->query("SELECT id_persona, apellido, nombre, dni, cuil, domicilio FROM datos_personas INNER JOIN usuarios ON datos_personas.rela_usuario=usuarios.Cod_usuario WHERE Tipo_usuario = 'User'");
+    $result = $dbConn->query("SELECT id_persona, apellido, nombre, dni, cuil, domicilio, rela_usuario FROM datos_personas INNER JOIN usuarios ON datos_personas.rela_usuario=usuarios.Cod_usuario WHERE Tipo_usuario = 'User'");
 ?>
 
 <!DOCTYPE html>
@@ -92,6 +92,13 @@
                          <li>
                             <a href="#"><i class="fa fa-file-text-o fa-fw"></i>Contratos</a>
                         </li>
+
+                        <li>
+                            <a href="admin_listacontratados.php"><i class="fa fa-search fa-fw"></i>Lista de Personas Contratadas</a>
+                        <li>
+                        <li>
+                            <a href="admin_cv.php"><i class="fa fa-file-text fa-fw"></i>Ver Curriculum</a>
+                       <li>
                         <li>
                             <a href="admin_users.php"><i class="fa fa-user fa-fw"></i>Usuarios</a>
                         </li>

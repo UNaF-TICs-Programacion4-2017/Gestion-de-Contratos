@@ -94,9 +94,11 @@ $idusuario = $_SESSION['id'];
                         </li>
 
                          <li>
-                            <a href="admin_listacontratados.php"><i class="fa fa-file-text fa-fw"></i>Lista de Personas Contratadas</a>
+                            <a href="admin_listacontratados.php"><i class="fa fa-search fa-fw"></i>Lista de Personas Contratadas</a>
                         <li>
-
+                        <li>
+                            <a href="admin_cv.php"><i class="fa fa-file-text fa-fw"></i>Ver Curriculum</a>
+                       <li> 
                         <li>
                             <a href="admin_users.php"><i class="fa fa-user fa-fw"></i>Usuarios</a>
                         </li>

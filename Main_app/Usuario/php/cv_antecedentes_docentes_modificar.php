@@ -157,9 +157,6 @@ if(isset($_POST['update_ad'])) {
                         </li>
                         
                         <li>
-                            <a href="forms.html"><i class="fa fa-search fa-fw"></i> Ver Curriculum</a>
-                        </li>
-                        <li>
                             <a href="user_vermiscontratos.php"><i class="fa fa-check-square fa-fw"></i> Ver Materias Asignadas</a>
                         </li>
                         
@@ -205,11 +202,24 @@ if(isset($_POST['update_ad'])) {
                                         </div>
                                         <div class="form-group">
                                             <label>Cargo</label>
-                                            <input type="text" name="cargo" class="form-control" value="<?php echo $cargo;?>">
+                                            <select name="cargo" class="form-control">
+                                                <option value="Profesor Titular">Profesor Titular</option>
+                                                <option value="Profesor Adjunto">Profesor Adjunto</option>
+                                                <option value="Profesor Asociado">Profesor Asociado</option>
+                                                <option value="Jefe de Trabajos practicos">Jefe de trabajos practicos</option>
+                                            </select>
                                         </div>
                                         <div class="form-group">
-                                            <label>Catedra</label>
-                                            <input type="text" name="catedra" class="form-control" value="<?php echo $catedra;?>">
+                                            <label>Cátedra</label>
+                                            <select name="catedra" class="form-control">
+                                                <option value="Matematica 1">Matematica 1</option>
+                                                <option value="Matematica 2">Matematica 2</option>
+                                                <option value="Programacion 1">Programacion 1</option>
+                                                <option value="Programacion 2">Programacion 2</option>
+                                                <option value="Programacion 3">Programacion 3</option>
+                                                <option value="Programacion 4">Programacion 4</option>
+                                                <option value="Base de datos 1">Base de datos</option>
+                                            </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Carrera</label>

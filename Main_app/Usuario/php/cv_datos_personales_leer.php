@@ -109,9 +109,6 @@
                         </li>
                         
                         <li>
-                            <a href="forms.html"><i class="fa fa-search fa-fw"></i> Ver Curriculum</a>
-                        </li>
-                        <li>
                             <a href="user_vermiscontratos.php"><i class="fa fa-check-square fa-fw"></i> Ver Materias Asignadas</a>
                         </li>
                         

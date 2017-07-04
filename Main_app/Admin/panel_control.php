@@ -76,23 +76,27 @@
 
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu">
-                        
+                    <ul class="nav" id="side-menu">                     
                         <li>
-                            <a href="panel_control.html"><i class="fa fa-dashboard fa-fw"></i>Panel de Control</a>
+                            <a href="#"><i class="fa fa-dashboard fa-fw"></i>Panel de Control</a>
                         </li>
 
                         <li>
-                            <a href="forms.html"><i class="fa  fa-check-square-o fa-fw"></i> Asignar Materias</a>
+                            <a href="admin_contactos.php"><i class="fa fa-file-text fa-fw"></i>Teléfonos de Contacto</a>
+                       <li>
+                       
+                         <li>
+                            <a href="contratos_leer.php"><i class="fa fa-file-text-o fa-fw"></i>Contratos</a>
                         </li>
+
                         <li>
-                            <a href="forms.html"><i class="fa fa-file-text fa-fw"></i> Dictamenes</a>
-                        
+                            <a href="admin_listacontratados.php"><i class="fa fa-search fa-fw"></i>Lista de Personas Contratadas</a>
                         <li>
-                            <a href="forms.html"><i class="fa fa-file-text-o fa-fw"></i>Contratos</a>
-                        </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-user fa-fw"></i>Usuarios</a>
+                            <a href="#"><i class="fa fa-file-text fa-fw"></i>Ver Curriculum</a>
+                       <li>
+                        <li>
+                            <a href="admin_users.php"><i class="fa fa-user fa-fw"></i>Usuarios</a>
                         </li>
                     </ul>
                 </div>
@@ -126,7 +130,7 @@
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left">Ver Destalle</span>
+                                <span class="pull-left">Ver Detalle</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>

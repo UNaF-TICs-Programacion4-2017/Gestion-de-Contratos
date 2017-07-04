@@ -88,7 +88,7 @@
                         </li>
 
                         <li>
-                            <a href="admin_listacontratados.php"><i class="fa fa-file-text fa-fw"></i>Lista de Personas Contratadas</a>
+                            <a href="admin_listacontratados.php"><i class="fa fa-search fa-fw"></i>Lista de Personas Contratadas</a>
                         <li>
                         
                         <li>
