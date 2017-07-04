@@ -86,20 +86,21 @@ if (!empty($row)) {
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                        	
-                       	<li>
+                       	
+                        <li>
                             <a href="panel_control.php"><i class="fa fa-dashboard fa-fw"></i>Panel de Control</a>
                         </li>
 
-                        <!--<li>
-                            <a href="forms.html"><i class="fa fa-file-text fa-fw"></i> Dictamenes</a>
-                       <li>
-                       -->
-                         <li>
+                        
+                        <li>
                             <a href="contratos_leer.php"><i class="fa fa-file-text-o fa-fw"></i>Contratos</a>
                         </li>
+  
+                        
                         <li>
-                            <a href="#"><i class="fa fa-user fa-fw"></i>Usuarios</a>
+                            <a href="admin_users.php"><i class="fa fa-user fa-fw"></i>Usuarios</a>
                         </li>
+                        
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

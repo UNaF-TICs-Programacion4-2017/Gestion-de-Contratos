@@ -1,7 +1,10 @@
 <?php session_start(); 
 include_once("config.php");
 $idusuario = $_SESSION['id'];
- $result = $dbConn->query("SELECT apellido, nombre, dni, domicilio, telefono, celular, datos_personas.email FROM datos_personas INNER JOIN usuarios ON datos_personas.rela_usuario=usuarios.Cod_usuario WHERE Tipo_usuario = 'User'");
+$result = $dbConn->query('SELECT apellido, nombre, dni, asignatura, cargo, desde, hasta, id_contrato FROM datos_personas, contratos WHERE contratos.rela_persona= datos_personas.id_persona ORDER BY `contratos`.`id_contrato` ASC');
+    
+$row = $result->fetch(PDO::FETCH_ASSOC);
+
 ?>
 
 
@@ -86,12 +89,20 @@ $idusuario = $_SESSION['id'];
                             <a href="panel_control.php"><i class="fa fa-dashboard fa-fw"></i>Panel de Control</a>
                         </li>
 
-                        
+                        <li>
+                            <a href="admin_contactos.php"><i class="fa fa-file-text fa-fw"></i> Teléfonos de Contacto</a>
+                        <li>
+                    
                         <li>
                             <a href="contratos_leer.php"><i class="fa fa-file-text-o fa-fw"></i>Contratos</a>
                         </li>
-  
-                        
+
+                        <li>
+                            <a href="#"><i class="fa fa-search fa-fw"></i>Lista de Personas Contratadas</a>
+                        <li>
+                        <li>
+                            <a href="admin_cv.php"><i class="fa fa-file-text fa-fw"></i>Ver Curriculum</a>
+                        <li>
                         <li>
                             <a href="admin_users.php"><i class="fa fa-user fa-fw"></i>Usuarios</a>
                         </li>
@@ -107,7 +118,7 @@ $idusuario = $_SESSION['id'];
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Aspirantes - Contactos</h1>
+                        <h1 class="page-header">Aspirantes</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -117,7 +128,7 @@ $idusuario = $_SESSION['id'];
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Informacion de Contacto de los Aspirantes
+                            Lista de Aspirantes disponibles para contratar
                         </div>
 
                         <!-- /.panel-heading -->
@@ -131,10 +142,10 @@ $idusuario = $_SESSION['id'];
                                             <th>Apellido</th>
                                             <th>Nombre</th>
                                             <th>DNI</th>
-                                            <th>Domicilio</th>
-                                            <th>Teléfono</th>
-                                            <th>Celular</th>
-                                            <th>Email</th>
+                                            <th>asignatura</th>
+                                            <th>cargo</th>
+                                            <th>desde</th>
+                                            <th>hasta</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -145,10 +156,10 @@ $idusuario = $_SESSION['id'];
                                                 echo "<td>".$row['apellido']."</td>";
                                                 echo "<td>".$row['nombre']."</td>";
                                                 echo "<td>".$row['dni']."</td>"; 
-                                                echo "<td>".$row['domicilio']."</td>";      
-                                                echo "<td>".$row['telefono']."</td>";
-                                                echo "<td>".$row['celular']."</td>";
-                                                echo "<td>".$row['email']."</td>";
+                                                echo "<td>".$row['asignatura']."</td>";
+                                                echo "<td>".$row['cargo']."</td>";    
+                                                echo "<td>".$row['desde']."</td>";    
+                                                echo "<td>".$row['hasta']."</td>";    
                                                 echo "</tr>";
                                             }
                                             ?>      

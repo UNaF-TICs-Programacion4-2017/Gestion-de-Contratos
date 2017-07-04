@@ -88,21 +88,26 @@ if (!empty($row)) {
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                        	
-                       	
-                        <li>
+                       	<li>
                             <a href="panel_control.php"><i class="fa fa-dashboard fa-fw"></i>Panel de Control</a>
                         </li>
 
-                        
+                        <li>
+                            <a href="forms.html"><i class="fa fa-file-text fa-fw"></i> Teléfonos de Contacto</a>
+                        <li>
+               
                         <li>
                             <a href="contratos_leer.php"><i class="fa fa-file-text-o fa-fw"></i>Contratos</a>
                         </li>
-  
-                        
                         <li>
-                            <a href="admin_users.php"><i class="fa fa-user fa-fw"></i>Usuarios</a>
+                            <a href="admin_listacontratados.php"><i class="fa fa-search fa-fw"></i>Lista de Personas Contratadas</a>
+                        <li>
+                        <li>
+                            <a href="admin_cv.php"><i class="fa fa-file-text fa-fw"></i>Ver Curriculum</a>
+                       <li>
+                        <li>
+                            <a href="#"><i class="fa fa-user fa-fw"></i>Usuarios</a>
                         </li>
-                        
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -147,33 +152,57 @@ if (!empty($row)) {
                                     <tbody>
                                        <?php  
                                        //estudios cursados
-                                        $sql = 'SELECT * FROM titulos_obtenidos WHERE rela_usuario = \''.$idusuario.'\'';
+$sql = 'SELECT * FROM titulos_obtenidos WHERE rela_usuario = \''.$idusuario.'\'';
 
-                                        $sentencia = $dbConn->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_SCROLL));
-                                        $sentencia->execute();
-                                        while ($fila = $sentencia->fetch(PDO::FETCH_ASSOC, PDO::FETCH_ORI_NEXT)) {
-                                              
-                                              echo "<tr>";     
-                                              echo "<td>".$fila['tipo_titulo']."</td>";                           
-                                              echo "<td>".$fila['desde']."</td>";
-                                              echo "<td>".$fila['hasta']."</td>"; 
-                                              echo "<td>".$fila['titulo']."</td>";
-                                              echo "<td>".$fila['universidad']."</td>";
-                                              echo "<tr>";
-                                        }
-                                            $sentencia = null;      
-                                        //
-                                                                               ?> 
+$sentencia = $dbConn->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_SCROLL));
+$sentencia->execute();
+while ($fila = $sentencia->fetch(PDO::FETCH_ASSOC, PDO::FETCH_ORI_NEXT)) {
+      
+      echo "<tr>";     
+      echo "<td>".$fila['tipo_titulo']."</td>";                           
+      echo "<td>".$fila['desde']."</td>";
+      echo "<td>".$fila['hasta']."</td>"; 
+      echo "<td>".$fila['titulo']."</td>";
+      echo "<td>".$fila['universidad']."</td>";
+      echo "<tr>";
+}
+    $sentencia = null;      
+//
+                                       ?> 
                                     </tbody>
                                 </table>
                             </div>
+                        
                             
-                            <div class="row">
-                            <div class="col-lg-12">
-                            <div class="panel panel-default">
-                            <div class="panel-heading">
-                                Antecedentes Docentes
-                            </div>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+                </div>
+                            <!-- /.panel-body -->
+            </div>
+                    <!-- /.panel -->
+        </div>
+                <!-- /.col-lg-12 -->
+
+    <!-- Page Content -->
+        <div id="page-wrapper">
+           
+                <div class="row">
+                    
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- /.row -->
+
+                <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Antecedentes Docentes
+                        </div>
 
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -196,31 +225,42 @@ if (!empty($row)) {
                                     <tbody>
                                      <?php  
                                         $sql = 'SELECT * FROM antecedentes_docentes WHERE rela_usuario = \''.$idusuario.'\'';
-                                    $sentencia = $dbConn->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_SCROLL));
-                                        $sentencia->execute();
-                                        while ($fila = $sentencia->fetch(PDO::FETCH_ASSOC, PDO::FETCH_ORI_NEXT)) {
-                                          echo "<tr>";                                             
-                                          echo "<td>".$fila['desde']."</td>";
-                                          echo "<td>".$fila['hasta']."</td>"; 
-                                          echo "<td>".$fila['universidad']."</td>";
-                                          echo "<td>".$fila['cargo']."</td>";
-                                          echo "<td>".$fila['catedra']."</td>"; 
-                                          echo "<td>".$fila['carrera']."</td>";
-                                          echo "<td>".$fila['facultad']."</td>";
-                                         
-                                        }
-                                        $sentencia = null;
-                                                                         ?> 
+$sentencia = $dbConn->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_SCROLL));
+    $sentencia->execute();
+    while ($fila = $sentencia->fetch(PDO::FETCH_ASSOC, PDO::FETCH_ORI_NEXT)) {
+      echo "<tr>";                                             
+      echo "<td>".$fila['desde']."</td>";
+      echo "<td>".$fila['hasta']."</td>"; 
+      echo "<td>".$fila['universidad']."</td>";
+      echo "<td>".$fila['cargo']."</td>";
+      echo "<td>".$fila['catedra']."</td>"; 
+      echo "<td>".$fila['carrera']."</td>";
+      echo "<td>".$fila['facultad']."</td>";
+     
+    }
+    $sentencia = null;
+                                     ?> 
                                     </tbody>
-                                </table>
-                            </div>                             
-
-
-                            </div>
-                                        <!-- /.panel-body -->
-                
+                            </table>
+                        </div>
+                        
+                            
                         </div>
                         <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+                </div>
+                            <!-- /.panel-body -->
+            
+                    <!-- /.panel -->
+        </div>
+                <!-- /.col-lg-12 -->
+    
+    <!-- Page Content -->
+        <div id="page-wrapper">
 
                 <div class="row">
                 <div class="col-lg-12">
@@ -247,34 +287,34 @@ if (!empty($row)) {
                                     <tbody>  
                                        <?php  
                                        $sql = 'SELECT * FROM antecedentes_laborales WHERE rela_usuario = \''.$idusuario.'\'';
-                                     $sentencia = $dbConn->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_SCROLL));
-                                        $sentencia->execute();
-                                        while ($fila = $sentencia->fetch(PDO::FETCH_ASSOC, PDO::FETCH_ORI_NEXT)) {
-                                          echo "<tr>";                                              
-                                          echo "<td>".$fila['desde']."</td>";
-                                          echo "<td>".$fila['hasta']."</td>"; 
-                                          echo "<td>".$fila['organizacion']."</td>";
-                                          echo "<td>".$fila['cargo']."</td>";   
-                                        }
-                                        $sentencia = null;  
-                                                                           ?>     
+ $sentencia = $dbConn->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_SCROLL));
+    $sentencia->execute();
+    while ($fila = $sentencia->fetch(PDO::FETCH_ASSOC, PDO::FETCH_ORI_NEXT)) {
+      echo "<tr>";                                              
+      echo "<td>".$fila['desde']."</td>";
+      echo "<td>".$fila['hasta']."</td>"; 
+      echo "<td>".$fila['organizacion']."</td>";
+      echo "<td>".$fila['cargo']."</td>";   
+    }
+    $sentencia = null;  
+                                       ?>     
                                     </tbody>
                             </table>
                         </div>                       
-                
+                           
+                        </div>
+                        <!-- /.panel-body -->
                     </div>
                     <!-- /.panel -->
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
-            </div>
+                </div>
                             <!-- /.panel-body -->
-            </div>
+            
                     <!-- /.panel -->
         </div>
                 <!-- /.col-lg-12 -->
-
-    
             
 
     <!-- jQuery -->

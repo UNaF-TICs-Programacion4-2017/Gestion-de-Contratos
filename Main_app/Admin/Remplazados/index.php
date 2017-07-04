@@ -1,16 +1,9 @@
-<?php session_start(); 
-include_once("config.php");
-$idusuario = $_SESSION['id'];
- $result = $dbConn->query("SELECT apellido, nombre, dni, domicilio, telefono, celular, datos_personas.email FROM datos_personas INNER JOIN usuarios ON datos_personas.rela_usuario=usuarios.Cod_usuario WHERE Tipo_usuario = 'User'");
-?>
-
-
-
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
-	
+	<link rel="stylesheet" type="text/css" href="../../css/main.css">
 
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -86,11 +79,17 @@ $idusuario = $_SESSION['id'];
                             <a href="panel_control.php"><i class="fa fa-dashboard fa-fw"></i>Panel de Control</a>
                         </li>
 
-                        
                         <li>
+                            <a href="admin_contactos.php"><i class="fa fa-file-text fa-fw"></i>Teléfonos de Contacto</a>
+                       <li>
+                       
+                         <li>
                             <a href="contratos_leer.php"><i class="fa fa-file-text-o fa-fw"></i>Contratos</a>
                         </li>
-  
+
+                        <li>
+                            <a href="admin_listacontratados.php"><i class="fa fa-search fa-fw"></i>Lista de Personas Contratadas</a>
+                        <li>
                         
                         <li>
                             <a href="admin_users.php"><i class="fa fa-user fa-fw"></i>Usuarios</a>
@@ -103,69 +102,36 @@ $idusuario = $_SESSION['id'];
         </nav>
 
         <!-- Page Content -->
-  <div id="page-wrapper">
+        <div id="page-wrapper">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Aspirantes - Contactos</h1>
+                        <h1 class="page-header"><?php echo "Bienvenido ". strtoupper($_SESSION['usuariolg']);
+?>	</h1>
                     </div>
+
+                        <form role="form">
+                            
+                            
+                                
+                                 <!-- /<div align="center" class="form-group">
+                                   // <img src="../images/unaf.jpg" width="385" height="385" >
+                               </div> -->
+                            </div>
+
+                        </form>
                     <!-- /.col-lg-12 -->
                 </div>
                 <!-- /.row -->
-
-                <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Informacion de Contacto de los Aspirantes
-                        </div>
-
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-
-                            <div class="table-responsive">
-
-                                <table align = "center" width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                    <thead>
-                                        <tr>
-                                            <th>Apellido</th>
-                                            <th>Nombre</th>
-                                            <th>DNI</th>
-                                            <th>Domicilio</th>
-                                            <th>Teléfono</th>
-                                            <th>Celular</th>
-                                            <th>Email</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        
-                                           <?php    
-                                               while($row = $result->fetch(PDO::FETCH_ASSOC)) {        
-                                                echo "<tr>";
-                                                echo "<td>".$row['apellido']."</td>";
-                                                echo "<td>".$row['nombre']."</td>";
-                                                echo "<td>".$row['dni']."</td>"; 
-                                                echo "<td>".$row['domicilio']."</td>";      
-                                                echo "<td>".$row['telefono']."</td>";
-                                                echo "<td>".$row['celular']."</td>";
-                                                echo "<td>".$row['email']."</td>";
-                                                echo "</tr>";
-                                            }
-                                            ?>      
-                                    </tbody>
-                                </table>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
+                
                 <!-- /.col-lg-12 -->
             </div>
-                </div>
-                            <!-- /.panel-body -->
-            </div>
-                    <!-- /.panel -->
+            <!-- /.container-fluid -->
         </div>
-                <!-- /.col-lg-12 -->
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
 
     <!-- jQuery -->
     <script src="../../vendor/jquery/jquery.min.js"></script>

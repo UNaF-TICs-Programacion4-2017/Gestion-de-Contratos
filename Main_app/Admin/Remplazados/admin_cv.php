@@ -1,26 +1,26 @@
-<?php session_start(); 
-include_once("config.php");
-$idusuario = $_SESSION['id'];
- $result = $dbConn->query("SELECT apellido, nombre, dni, domicilio, telefono, celular, datos_personas.email FROM datos_personas INNER JOIN usuarios ON datos_personas.rela_usuario=usuarios.Cod_usuario WHERE Tipo_usuario = 'User'");
+<?php
+    session_start();
+    //including the database connection file
+    include_once("config.php");
+
+    //fetching data in descending order (lastest entry first)
+    $result = $dbConn->query("SELECT id_persona, apellido, nombre, dni, cuil, domicilio, rela_usuario FROM datos_personas INNER JOIN usuarios ON datos_personas.rela_usuario=usuarios.Cod_usuario WHERE Tipo_usuario = 'User'");
 ?>
 
-
-
 <!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	
+<html lang="en">
 
-	<meta charset="utf-8">
+<head>
+
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Administrador</title>
+    <title>Contratos</title>
 
-    <!-- Bootstrap Core CSS -->
+   <!-- Bootstrap Core CSS -->
     <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
@@ -38,11 +38,12 @@ $idusuario = $_SESSION['id'];
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
 </head>
 
 <body>
 
-	<div id="wrapper">
+    <div id="wrapper">
 
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -54,7 +55,6 @@ $idusuario = $_SESSION['id'];
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand"><?php echo strtoupper($_SESSION['usuariolg']);?></a>
-	            
             </div>
             <!-- /.navbar-header -->
 
@@ -81,17 +81,24 @@ $idusuario = $_SESSION['id'];
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                       	
-                       	<li>
+                        <li>
                             <a href="panel_control.php"><i class="fa fa-dashboard fa-fw"></i>Panel de Control</a>
                         </li>
 
-                        
                         <li>
-                            <a href="contratos_leer.php"><i class="fa fa-file-text-o fa-fw"></i>Contratos</a>
+                            <a href="admin_contactos.php"><i class="fa fa-file-text fa-fw"></i>Teléfonos de Contacto</a>
+                       <li>
+                       
+                         <li>
+                            <a href="contratos_leer"><i class="fa fa-file-text-o fa-fw"></i>Contratos</a>
                         </li>
-  
-                        
+
+                        <li>
+                            <a href="admin_listacontratados.php"><i class="fa fa-search fa-fw"></i>Lista de Personas Contratadas</a>
+                        <li>
+                        <li>
+                            <a href="#"><i class="fa fa-file-text fa-fw"></i>Ver Curriculum</a>
+                       <li>
                         <li>
                             <a href="admin_users.php"><i class="fa fa-user fa-fw"></i>Usuarios</a>
                         </li>
@@ -102,12 +109,13 @@ $idusuario = $_SESSION['id'];
             <!-- /.navbar-static-side -->
         </nav>
 
+
         <!-- Page Content -->
-  <div id="page-wrapper">
+        <div id="page-wrapper">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Aspirantes - Contactos</h1>
+                        <h1 class="page-header">Aspirantes</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -117,7 +125,7 @@ $idusuario = $_SESSION['id'];
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Informacion de Contacto de los Aspirantes
+                            Lista de Aspirantes
                         </div>
 
                         <!-- /.panel-heading -->
@@ -131,26 +139,25 @@ $idusuario = $_SESSION['id'];
                                             <th>Apellido</th>
                                             <th>Nombre</th>
                                             <th>DNI</th>
+                                            <th>CUIL/CUIT</th>
                                             <th>Domicilio</th>
-                                            <th>Teléfono</th>
-                                            <th>Celular</th>
-                                            <th>Email</th>
+                                            <th>Asignar</th>
+                                            
                                         </tr>
                                     </thead>
                                     <tbody>
                                         
                                            <?php    
-                                               while($row = $result->fetch(PDO::FETCH_ASSOC)) {        
+                                                while($row = $result->fetch(PDO::FETCH_ASSOC)) {        
                                                 echo "<tr>";
                                                 echo "<td>".$row['apellido']."</td>";
                                                 echo "<td>".$row['nombre']."</td>";
                                                 echo "<td>".$row['dni']."</td>"; 
-                                                echo "<td>".$row['domicilio']."</td>";      
-                                                echo "<td>".$row['telefono']."</td>";
-                                                echo "<td>".$row['celular']."</td>";
-                                                echo "<td>".$row['email']."</td>";
-                                                echo "</tr>";
-                                            }
+                                                echo "<td>".$row['cuil']."</td>";
+                                                echo "<td>".$row['domicilio']."</td>";
+                                                echo "<td><a href= \"admin_vercv.php?rela_usuario=$row[rela_usuario]\"><b>Ver Curriculum</b></a></td>";
+                                                //echo "<td><a href=\"contratos_modificar.php?id_persona=$row[id_persona]\" onClick=\"return confirm('Estas seguro de querer Modificar?')\" >Modificar</a></td>";       
+                                              }
                                             ?>      
                                     </tbody>
                                 </table>
@@ -168,6 +175,8 @@ $idusuario = $_SESSION['id'];
                 <!-- /.col-lg-12 -->
 
     <!-- jQuery -->
+    
+    <!-- jQuery -->
     <script src="../../vendor/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
@@ -178,19 +187,7 @@ $idusuario = $_SESSION['id'];
 
     <!-- Custom Theme JavaScript -->
     <script src="../../dist/js/sb-admin-2.js"></script>
-<!--
-<div class="error">
-	<span>datos de ingreso no validos</span>
-</div>
-<div class="main">
-	<form action="" id="formlg">
-		<input type="text" name="usuariolg" placeholder="nombre de usuario" required="true" />
-		<input type="password" name="passlg" placeholder="password" required="true" />
-		<input type="submit" name="botonlg" value="iniciar sesion" />
-	</form>
-</div>
-<script src="js/jquery-2.1.1.min.js"></script>
-<script src="js/main.js"></script>-->
 
 </body>
+
 </html>

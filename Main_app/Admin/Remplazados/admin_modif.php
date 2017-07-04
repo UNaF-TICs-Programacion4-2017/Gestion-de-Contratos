@@ -128,21 +128,19 @@ if(isset($_POST['update']))
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                        	
-                       	
-                        <li>
+                       	<li>
                             <a href="panel_control.php"><i class="fa fa-dashboard fa-fw"></i>Panel de Control</a>
                         </li>
-
-                        
                         <li>
+                            <a href="admin_contactos.php"><i class="fa fa-file-text fa-fw"></i>Teléfonos de Contacto</a>
+                       <li>
+                      
+                         <li>
                             <a href="contratos_leer.php"><i class="fa fa-file-text-o fa-fw"></i>Contratos</a>
                         </li>
-  
-                        
                         <li>
-                            <a href="admin_users.php"><i class="fa fa-user fa-fw"></i>Usuarios</a>
+                            <a href="#"><i class="fa fa-user fa-fw"></i>Usuarios</a>
                         </li>
-
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -186,8 +184,8 @@ if(isset($_POST['update']))
                                             <input type="text" name="email" class="form-control" value="<?php echo $email;?>">
                                         </div>
                                         <!--<div class="form-group">-->
-                                           <!--< <label>Id usuario</label>-->
-                                            <input type="hidden" name="Cod_usuario" readonly="readonly" value="<?php echo $_GET['Cod_usuario'];?>">
+                                            <label>Id usuario</label>
+                                            <input type="text" name="Cod_usuario" readonly="readonly" value="<?php echo $_GET['Cod_usuario'];?>">
                                         <!--</div>-->
 
                                         <td><input type="submit" name="update" value="Aceptar" class="btn btn-default"></td>
@@ -197,6 +195,20 @@ if(isset($_POST['update']))
                                     </form>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
+                                <div class="col-lg-6">
+                                    <form role="form">
+
+                                        <div align="center" class="form-group">
+                                            <img src="../images/default-user.png" width="200" height="200" >
+                                        </div>
+
+                                        <div align="center" class="form-group">
+                                            <label>Buscar Foto</label>
+                                            <input type="file">
+                                        </div>
+                                    </form>
+                                    
+                                </div>
                                 <!-- /.col-lg-6 (nested) -->
                             </div>
                             <!-- /.row (nested) -->

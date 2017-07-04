@@ -107,17 +107,16 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                        
                         <li>
                             <a href="panel_control.php"><i class="fa fa-dashboard fa-fw"></i>Panel de Control</a>
                         </li>
 
-                        
                         <li>
+                            <a href="admin_contactos.php"><i class="fa fa-file-text fa-fw"></i>Teléfonos de Contacto</a>
+                        <li>
+                         <li>
                             <a href="contratos_leer.php"><i class="fa fa-file-text-o fa-fw"></i>Contratos</a>
                         </li>
-  
-                        
                         <li>
                             <a href="admin_users.php"><i class="fa fa-user fa-fw"></i>Usuarios</a>
                         </li>
@@ -218,16 +217,29 @@
                                             </select>    
                                         </div>
                                         <div class="form-group">
-                                            <input type="hidden" name="id_persona" value="<?php echo $_GET['id_persona'];?>" readonly="readonly">
+                                            <label>Id Persona</label>
+                                            <input type="text" name="id_persona" value="<?php echo $_GET['id_persona'];?>" readonly="readonly">
                                         </div>
 
                                         <td><input type="submit" style="font-weight:bold;" name="update" value="ASIGNAR" class="btn btn-default"></td>
                                        
-                                        <a href="contratos_leer.php" class="btn btn-default">Cancelar</a>
+                                        <a href="index.php" class="btn btn-default">Volver al INICIO</a>
                                         
                                     </form>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
+                                <div class="col-lg-6">
+                                    <form role="form">
+
+                                        <div align="center" class="form-group">
+                                            <img src="../images/default-user.png" width="200" height="200" >
+                                        </div>
+
+                                        <div align="center" class="form-group">
+                                            <label>Buscar Foto</label>
+                                            <input type="file">
+                                        </div>
+                                    </form>
                                     
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->

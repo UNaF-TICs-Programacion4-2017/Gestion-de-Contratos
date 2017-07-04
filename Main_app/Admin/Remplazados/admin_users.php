@@ -1,7 +1,12 @@
 <?php session_start(); 
 include_once("config.php");
 $idusuario = $_SESSION['id'];
- $result = $dbConn->query("SELECT apellido, nombre, dni, domicilio, telefono, celular, datos_personas.email FROM datos_personas INNER JOIN usuarios ON datos_personas.rela_usuario=usuarios.Cod_usuario WHERE Tipo_usuario = 'User'");
+$result = $dbConn->query("SELECT * FROM usuarios WHERE Tipo_usuario = 'Admin'");
+    
+//$row = $result->fetch(PDO::FETCH_ASSOC);
+if (!empty($row)) {
+        $contenido = 1;
+    }
 ?>
 
 
@@ -10,7 +15,7 @@ $idusuario = $_SESSION['id'];
 <html>
 <head>
 	<meta charset="UTF-8">
-	
+	<link rel="stylesheet" type="text/css" href="../../css/main.css">
 
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -86,14 +91,20 @@ $idusuario = $_SESSION['id'];
                             <a href="panel_control.php"><i class="fa fa-dashboard fa-fw"></i>Panel de Control</a>
                         </li>
 
-                        
                         <li>
+                            <a href="admin_contactos.php"><i class="fa fa-file-text fa-fw"></i>Teléfonos de Contacto</a>
+                       <li>
+                       
+                         <li>
                             <a href="contratos_leer.php"><i class="fa fa-file-text-o fa-fw"></i>Contratos</a>
                         </li>
-  
+
+                        <li>
+                            <a href="admin_listacontratados.php"><i class="fa fa-search fa-fw"></i>Lista de Personas Contratadas</a>
+                        <li>
                         
                         <li>
-                            <a href="admin_users.php"><i class="fa fa-user fa-fw"></i>Usuarios</a>
+                            <a href="#"><i class="fa fa-user fa-fw"></i>Usuarios</a>
                         </li>
                     </ul>
                 </div>
@@ -107,7 +118,7 @@ $idusuario = $_SESSION['id'];
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Aspirantes - Contactos</h1>
+                        <h1 class="page-header">Usuarios del Sistema</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -117,7 +128,7 @@ $idusuario = $_SESSION['id'];
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Informacion de Contacto de los Aspirantes
+                            Lista de Usuarios
                         </div>
 
                         <!-- /.panel-heading -->
@@ -128,13 +139,13 @@ $idusuario = $_SESSION['id'];
                                 <table align = "center" width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>Apellido</th>
-                                            <th>Nombre</th>
-                                            <th>DNI</th>
-                                            <th>Domicilio</th>
-                                            <th>Teléfono</th>
-                                            <th>Celular</th>
-                                            <th>Email</th>
+                                            <th>NOMBRE DE USUARIO</th>
+                                            <th>ALIAS</th>
+                                            <th>PASSWORD</th>
+                                            <th>TIPO</th>
+                                            <th>E-MAIL</th>
+                                            <th>Modificar</th>
+                                            
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -142,19 +153,22 @@ $idusuario = $_SESSION['id'];
                                            <?php    
                                                while($row = $result->fetch(PDO::FETCH_ASSOC)) {        
                                                 echo "<tr>";
-                                                echo "<td>".$row['apellido']."</td>";
-                                                echo "<td>".$row['nombre']."</td>";
-                                                echo "<td>".$row['dni']."</td>"; 
-                                                echo "<td>".$row['domicilio']."</td>";      
-                                                echo "<td>".$row['telefono']."</td>";
-                                                echo "<td>".$row['celular']."</td>";
+                                                echo "<td>".$row['NombreUsuario']."</td>";
+                                                echo "<td>".$row['Usuario']."</td>";
+                                                echo "<td>".$row['Password']."</td>"; 
+                                                echo "<td>".$row['Tipo_usuario']."</td>";
                                                 echo "<td>".$row['email']."</td>";
-                                                echo "</tr>";
-                                            }
+                                                echo "<td><a href= \"admin_modif.php?Cod_usuario=$row[Cod_usuario]\"><b>Modificar?</b></a></td>";
+                                                //echo "<td><a href=\"contratos_modif.php?Cod_usuario=$row[Cod_usuario]\" onClick=\"return confirm('Estas seguro de querer Modificar?')\" >Eliminar</a></td>";       
+                                              }      
+                                              
                                             ?>      
                                     </tbody>
                                 </table>
                         <!-- /.panel-body -->
+                         </div>
+                            <a href="admin_users_crear.php" class="btn btn-primary btn-sm">Agregar</a>
+                        </div>
                     </div>
                     <!-- /.panel -->
                 </div>

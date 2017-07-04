@@ -87,25 +87,21 @@ if (!empty($row)) {
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                        	
-                       	<li>
+                       	
+                        <li>
                             <a href="panel_control.php"><i class="fa fa-dashboard fa-fw"></i>Panel de Control</a>
                         </li>
 
-                        <li>
-                            <a href="admin_contactos.php"><i class="fa fa-file-text fa-fw"></i>Teléfonos de Contacto</a>
-                       <li>
-                       
-                         <li>
-                            <a href="contratos_leer.php"><i class="fa fa-file-text-o fa-fw"></i>Contratos</a>
-                        </li>
-
-                        <li>
-                            <a href="admin_listacontratados.php"><i class="fa fa-search fa-fw"></i>Lista de Personas Contratadas</a>
-                        <li>
                         
                         <li>
-                            <a href="#"><i class="fa fa-user fa-fw"></i>Usuarios</a>
+                            <a href="contratos_leer.php"><i class="fa fa-file-text-o fa-fw"></i>Contratos</a>
                         </li>
+  
+                        
+                        <li>
+                            <a href="admin_users.php"><i class="fa fa-user fa-fw"></i>Usuarios</a>
+                        </li>
+
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -139,12 +135,12 @@ if (!empty($row)) {
                                 <table align = "center" width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>NOMBRE DE USUARIO</th>
-                                            <th>ALIAS</th>
-                                            <th>PASSWORD</th>
-                                            <th>TIPO</th>
-                                            <th>E-MAIL</th>
-                                            <th>Modificar</th>
+                                            <th>Nombre de Usuario</th>
+                                            <th>Alias</th>
+                                            <th>Password</th>
+                                            <th>Tipo</th>
+                                            <th>Email</th>
+                                            <th>Accion</th>
                                             
                                         </tr>
                                     </thead>
@@ -158,7 +154,7 @@ if (!empty($row)) {
                                                 echo "<td>".$row['Password']."</td>"; 
                                                 echo "<td>".$row['Tipo_usuario']."</td>";
                                                 echo "<td>".$row['email']."</td>";
-                                                echo "<td><a href= \"admin_modif.php?Cod_usuario=$row[Cod_usuario]\"><b>Modificar?</b></a></td>";
+                                                echo "<td><a href= \"admin_modif.php?Cod_usuario=$row[Cod_usuario]\"><b>Modificar</b></a></td>";
                                                 //echo "<td><a href=\"contratos_modif.php?Cod_usuario=$row[Cod_usuario]\" onClick=\"return confirm('Estas seguro de querer Modificar?')\" >Eliminar</a></td>";       
                                               }      
                                               

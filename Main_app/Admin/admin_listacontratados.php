@@ -85,27 +85,21 @@ $row = $result->fetch(PDO::FETCH_ASSOC);
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                        	
-                       	<li>
+                       	
+                        <li>
                             <a href="panel_control.php"><i class="fa fa-dashboard fa-fw"></i>Panel de Control</a>
                         </li>
 
-                        <li>
-                            <a href="admin_contactos.php"><i class="fa fa-file-text fa-fw"></i> Teléfonos de Contacto</a>
-                        <li>
-                    
+                        
                         <li>
                             <a href="contratos_leer.php"><i class="fa fa-file-text-o fa-fw"></i>Contratos</a>
                         </li>
-
-                        <li>
-                            <a href="#"><i class="fa fa-search fa-fw"></i>Lista de Personas Contratadas</a>
-                        <li>
-                        <li>
-                            <a href="admin_cv.php"><i class="fa fa-file-text fa-fw"></i>Ver Curriculum</a>
-                        <li>
+  
+                        
                         <li>
                             <a href="admin_users.php"><i class="fa fa-user fa-fw"></i>Usuarios</a>
                         </li>
+
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -118,7 +112,7 @@ $row = $result->fetch(PDO::FETCH_ASSOC);
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Aspirantes</h1>
+                        <h1 class="page-header">Contratos</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -128,7 +122,7 @@ $row = $result->fetch(PDO::FETCH_ASSOC);
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Lista de Aspirantes disponibles para contratar
+                            Lista de Contratos
                         </div>
 
                         <!-- /.panel-heading -->
@@ -142,10 +136,10 @@ $row = $result->fetch(PDO::FETCH_ASSOC);
                                             <th>Apellido</th>
                                             <th>Nombre</th>
                                             <th>DNI</th>
-                                            <th>asignatura</th>
-                                            <th>cargo</th>
-                                            <th>desde</th>
-                                            <th>hasta</th>
+                                            <th>Asignatura</th>
+                                            <th>Cargo</th>
+                                            <th>Desde</th>
+                                            <th>Hasta</th>
                                         </tr>
                                     </thead>
                                     <tbody>
