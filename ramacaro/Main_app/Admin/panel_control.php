@@ -76,27 +76,23 @@
 
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu">                     
+                    <ul class="nav" id="side-menu">
+                        
                         <li>
-                            <a href="#"><i class="fa fa-dashboard fa-fw"></i>Panel de Control</a>
+                            <a href="panel_control.html"><i class="fa fa-dashboard fa-fw"></i>Panel de Control</a>
                         </li>
 
                         <li>
-                            <a href="admin_contactos.php"><i class="fa fa-file-text fa-fw"></i>Teléfonos de Contacto</a>
-                       <li>
-                       
-                         <li>
-                            <a href="contratos_leer.php"><i class="fa fa-file-text-o fa-fw"></i>Contratos</a>
+                            <a href="forms.html"><i class="fa  fa-check-square-o fa-fw"></i> Asignar Materias</a>
                         </li>
-
                         <li>
-                            <a href="admin_listacontratados.php"><i class="fa fa-search fa-fw"></i>Lista de Personas Contratadas</a>
+                            <a href="forms.html"><i class="fa fa-file-text fa-fw"></i> Dictamenes</a>
+                        
                         <li>
+                            <a href="forms.html"><i class="fa fa-file-text-o fa-fw"></i>Contratos</a>
+                        </li>
                         <li>
-                            <a href="#"><i class="fa fa-file-text fa-fw"></i>Ver Curriculum</a>
-                       <li>
-                        <li>
-                            <a href="admin_users.php"><i class="fa fa-user fa-fw"></i>Usuarios</a>
+                            <a href="forms.html"><i class="fa fa-user fa-fw"></i>Usuarios</a>
                         </li>
                     </ul>
                 </div>
@@ -115,7 +111,7 @@
             </div>
             <!-- /.row -->
             <div class="row">
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-3 col-md-6">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <div class="row">
@@ -123,21 +119,21 @@
                                     <i class="fa fa-user fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">Aspirantes</div>
-                                    <div>Lista de Aspirantes!</div>
+                                    <div class="huge">$nro</div>
+                                    <div>Aspirantes!</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="admin_cv.php">
+                        <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left">Ver Detalle</span>
+                                <span class="pull-left">Ver Destalle</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-3 col-md-6">
                     <div class="panel panel-green">
                         <div class="panel-heading">
                             <div class="row">
@@ -145,12 +141,12 @@
                                     <i class="fa fa-check-square-o fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">Contactos</div>
-                                    <div>Informacion de Contactos!</div>
+                                    <div class="huge">$nro</div>
+                                    <div>Materias Asignadas!</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="admin_contactos.php">
+                        <a href="#">
                             <div class="panel-footer">
                                 <span class="pull-left">Ver Detalles</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -159,8 +155,29 @@
                         </a>
                     </div>
                 </div>
-               
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-yellow">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-file-pdf-o fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">$nro</div>
+                                    <div>Dictamenes!</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">Ver Detalles</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
                     <div class="panel panel-red">
                         <div class="panel-heading">
                             <div class="row">
@@ -168,12 +185,12 @@
                                     <i class="fa fa-file-pdf-o fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">Contratos</div>
-                                    <div>Lista de Contratos!</div>
+                                    <div class="huge">$nro</div>
+                                    <div>Contratos!</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="admin_listacontratados.php">
+                        <a href="#">
                             <div class="panel-footer">
                                 <span class="pull-left">Ver Detalles</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
